@@ -1,0 +1,11 @@
+{
+  "frontend/src/index.css": "Global stylesheet defining OKLCH color tokens for the premium navy/gold brand palette, typography defaults (Raleway headings, Inter body), and reusable component/utility classes for consistent spacing and button styles.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with brand fonts (Raleway/Inter), custom colors (primary navy, accent gold, neutrals), premium shadows, and custom animations for the law firm aesthetic.",
+  "frontend/index.html": "HTML entry point with SEO meta tags, page title optimized for South Africa legal services, and preconnected Google Fonts for Raleway and Inter.",
+  "frontend/src/App.tsx": "Root application component rendering the HomePage as the initial view.",
+  "frontend/src/pages/HomePage.tsx": "Homepage container component composing the Hero, TrustIntro, and AboutApproach sections in semantic main landmark.",
+  "frontend/src/components/home/HeroSection.tsx": "Hero section component with single H1 headline, sub-headline, two CTA buttons with hover states, and optimized hero image with reserved space and descriptive alt text including South Africa keyword.",
+  "frontend/src/components/home/TrustIntroSection.tsx": "Trust/Intro section displaying the headline and four animated trust indicators with lightweight SVG icons in a responsive grid layout.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder file for future React Query hooks that will manage backend data fetching in later phases.",
+  "frontend/src/components/home/AboutApproachSection.tsx": "Phase 2 section component displaying the firm overview with three paragraphs about the practice, followed by a four-item grid showcasing the firm's client-centered approach with numbered cards and hover effects."
+}

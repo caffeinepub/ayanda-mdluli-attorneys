@@ -1,0 +1,65 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Phase 2 Homepage: About / Firm Overview + Approach Section",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "summary": "Add the Phase 2 About / Firm Overview + Approach section directly after the existing Trust / Intro section using the user's exact provided copy (no placeholders).",
+      "acceptanceCriteria": [
+        "A new section is rendered on the homepage directly below the TrustIntroSection.",
+        "All visible text in the new section matches the Phase 2 content from the user’s original prompt exactly (no lorem ipsum or invented copy).",
+        "No changes are made to the existing HeroSection or TrustIntroSection content."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/home/AboutApproachSection.tsx",
+          "operation": "modify",
+          "description": "Populate the Phase 2 section with the exact About / Firm Overview + Approach content from the user's original prompt (msg-6 referenced), ensuring no placeholder or invented copy is introduced."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Ensure the new Phase 2 section is rendered immediately after <TrustIntroSection /> in the homepage composition without changing existing <HeroSection /> or <TrustIntroSection /> content."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Create a dedicated React component for the Phase 2 section and wire it into the homepage after the Trust / Intro section.",
+      "acceptanceCriteria": [
+        "A new component file exists under frontend/src/components/home/ for the Phase 2 section.",
+        "frontend/src/pages/HomePage.tsx imports and renders the new Phase 2 component after <TrustIntroSection />.",
+        "The build compiles with no TypeScript errors."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/home/AboutApproachSection.tsx",
+          "operation": "create",
+          "description": "Create a dedicated Phase 2 React component that renders the About / Firm Overview + Approach section content and layout."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Import and render the new AboutApproachSection component after <TrustIntroSection />."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Style the Phase 2 section to match the Phase 1 premium spacious aesthetic and maintain correct semantic heading hierarchy (no new H1).",
+      "acceptanceCriteria": [
+        "The Phase 2 section uses the existing design system (Raleway headings, Inter body; consistent spacing; restrained accent usage) and looks coherent with Phase 1.",
+        "The Phase 2 section does not introduce any new H1; headings start at H2 and nest correctly (H3, etc.).",
+        "Layout is responsive: content remains readable and well-spaced on mobile, tablet, and desktop."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/home/AboutApproachSection.tsx",
+          "operation": "modify",
+          "description": "Apply mobile-first spacing, navy + muted gold accents, and clean typography using existing Tailwind tokens/utilities; implement semantic headings starting at H2 (with H3 where needed) and ensure responsive layout across breakpoints."
+        }
+      ]
+    }
+  ]
+}

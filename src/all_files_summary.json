@@ -1,0 +1,19 @@
+{
+  "backend/main.mo": "Empty Motoko actor with no implemented methods.",
+  "feature_evidence.json": "Report listing implemented Phase 2 homepage features with associated files, components, and test IDs.",
+  "frontend-file-summaries.txt": "Prewritten summaries of key frontend files including styles, config, layout, and components.",
+  "frontend/index.css": "Tailwind base styles defining OKLCH color variables, theme tokens, and global background/foreground behavior.",
+  "frontend/index.html": "HTML entry point with SEO meta tags and root mount point loading the React app.",
+  "frontend/src/App.tsx": "Root component that renders the HomePage.",
+  "frontend/src/components/home/AboutApproachSection.tsx": "Phase 2 About and Approach section displaying firm overview text and four approach items in styled grid layout.",
+  "frontend/src/components/home/HeroSection.tsx": "Hero section with main headline, supporting text, CTA buttons, and a decorative hero image.",
+  "frontend/src/components/home/TrustIntroSection.tsx": "Trust indicators section showing four metrics with icons in a responsive grid.",
+  "frontend/src/hooks/useActor.ts": "React hook creating an authenticated or anonymous backend actor and managing refetching when identity changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Defines a React context and provider for handling Internet Identity authentication, including login, logout, and identity persistence. Wraps AuthClient configuration and exposes status flags to consumers.",
+  "frontend/src/hooks/useQueries.ts": "Provides a simple wrapper hook exposing the actor and fetch state from useActor. Placeholder for future backend query hooks.",
+  "frontend/src/index.css": "Sets global Tailwind base styles, custom OKLCH color variables, typography rules, and utility/component classes for consistent theming. Includes light/dark mode tokens and layout helpers.",
+  "frontend/src/main.tsx": "Bootstraps the React app with QueryClientProvider and InternetIdentityProvider, then renders App. Imports global CSS.",
+  "frontend/src/pages/HomePage.tsx": "Renders the homepage layout by composing Hero, TrustIntro, and AboutApproach sections. Provides a minimal main wrapper.",
+  "frontend/tailwind.config.js": "Configures Tailwind with custom fonts, color tokens mapped to CSS variables, extended shadows, radii, animations, and plugin integrations. Enables dark mode and container settings.",
+  "project_state.json": "Stores project metadata, requirements, design notes, and progress for the website build. Tracks features, phases, and architectural constraints."
+}

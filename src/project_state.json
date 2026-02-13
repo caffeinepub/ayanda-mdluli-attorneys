@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Build a premium, modern, fast-loading, SEO-optimized website for Ayanda Mdluli Attorneys (South Africa) using the provided brand context, color palette, typography (Raleway + Inter), and a phased homepage build (Hero/Trust, About/Approach, Services/How-it-Works, Testimonials/Partners, FAQ/Final CTA/Footer) with a final optimization phase (PageSpeed, schema, OG tags, caching, cross-browser, HTTPS).",
+  "architectural_notes": [
+    "Mobile-first, fully responsive build with a consistent spacing system and scalable layout grid",
+    "Use clean semantic HTML5 with correct heading hierarchy (single H1; H2/H3 structure) and strong internal linking",
+    "Performance-first: optimize/compress images, lazy-load below the fold, minimize JavaScript, and avoid heavy plugins",
+    "Accessibility: WCAG-compliant contrast and ARIA attributes for interactive components (e.g., FAQ accordion)",
+    "SEO: meta titles/descriptions, alt text for images, Open Graph tags, and LegalService schema markup",
+    "Design system: premium navy + muted gold palette; typography limited to Raleway (headings) and Inter (body); minimal line-style icons (SVG preferred)"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-set-up-the-global-homepage-styling-foundation-to-match-the-provided-brand-system-tailwind-theme-tokens-for-colors-204257-0a3653-b98819-ad7b32-plus-white-light-grey-dark-grey-typography-using-only-raleway-for-headings-and-inter-for-body-and-a-consistent-spacing-layout-system-mobile-first-generous-whitespace-premium-feel",
+      "title": "Set up the global homepage styling foundation to match the provided brand system: Tailwind theme tokens for colors (#204257, #0a3653, #b98819, #ad7b32 plus white/light grey/dark grey), typography using only Raleway for headings and Inter for body, and a consistent spacing/layout system (mobile-first, generous whitespace, premium feel).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-phase-1a-hero-section-on-the-homepage-with-the-exact-content-provided-single-h1-trusted-legal-representation-when-it-matters-most-sub-headline-professional-accessible-legal-representation-across-labour-commercial-family-criminal-and-civil-matters-two-cta-buttons-schedule-a-consultation-primary-and-contact-us-today-secondary-layout-must-stack-on-mobile-text-above-image-and-use-a-premium-navy-muted-gold-aesthetic-with-optional-subtle-background-accent",
+      "title": "Implement Phase 1A: Hero section on the homepage with the exact content provided: single H1 'Trusted Legal Representation When It Matters Most', sub-headline 'Professional, accessible legal representation across labour, commercial, family, criminal, and civil matters.', two CTA buttons 'Schedule a Consultation' (primary) and 'Contact Us Today' (secondary). Layout must stack on mobile (text above image) and use a premium navy + muted gold aesthetic with optional subtle background accent.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-phase-1-performance-and-accessibility-requirements-for-the-hero-optimize-largest-contentful-paint-by-using-an-optimized-hero-image-compressed-with-explicit-width-height-to-avoid-cls-include-descriptive-alt-text-and-ensure-any-animations-are-subtle-and-do-not-trigger-layout-shift",
+      "title": "Implement Phase 1 performance and accessibility requirements for the Hero: optimize Largest Contentful Paint by using an optimized hero image (compressed) with explicit width/height to avoid CLS, include descriptive alt text, and ensure any animations are subtle and do not trigger layout shift.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-phase-1b-trust-intro-section-immediately-after-the-hero-with-the-provided-headline-proven-legal-experience-measurable-results-and-the-trust-indicators-10-years-of-experience-1000-clients-served-100-cases-solved-r1000000-settlements-design-must-be-clean-with-clear-separation-from-hero-white-light-grey-background-allowed-and-use-lightweight-svg-icons-no-heavy-animation-overload",
+      "title": "Implement Phase 1B: Trust / Intro section immediately after the Hero with the provided headline 'Proven legal experience. Measurable Results' and the trust indicators: '10+ years of experience', '1000+ Clients served', '100+ cases solved', 'R1000000+ settlements'. Design must be clean with clear separation from hero (white/light grey background allowed) and use lightweight SVG icons (no heavy animation overload).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-phase-1-on-page-seo-structure-for-the-homepage-semantic-sectioning-correct-heading-hierarchy-single-h1-in-hero-subsequent-headings-start-at-h2-h3-as-appropriate-for-phase-1-and-natural-inclusion-of-at-least-one-primary-keyword-phrase-targeting-south-africa-within-visible-copy-without-keyword-stuffing",
+      "title": "Add Phase 1 on-page SEO structure for the homepage: semantic sectioning, correct heading hierarchy (single H1 in Hero; subsequent headings start at H2/H3 as appropriate for Phase 1), and natural inclusion of at least one primary keyword phrase targeting South Africa within visible copy (without keyword stuffing).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-static-asset-handling-for-generated-images-store-required-images-under-frontend-public-assets-generated-and-reference-them-directly-from-the-frontend-no-backend-image-routing",
+      "title": "Add static asset handling for generated images: store required images under frontend/public/assets/generated and reference them directly from the frontend (no backend image routing).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-phase-2-on-the-homepage-by-adding-a-new-about-firm-overview-approach-section-immediately-after-the-existing-trust-intro-section-using-the-exact-phase-2-content-the-user-provided-in-their-first-prompt-no-placeholder-copy",
+      "title": "Implement Phase 2 on the homepage by adding a new About / Firm Overview + Approach section immediately after the existing Trust / Intro section, using the exact Phase 2 content the user provided in their first prompt (no placeholder copy).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-dedicated-react-component-for-phase-2-about-firm-overview-approach-and-wire-it-into-the-existing-homepage-composition-frontend-src-pages-homepage-tsx",
+      "title": "Create a dedicated React component for Phase 2 (About / Firm Overview + Approach) and wire it into the existing homepage composition (frontend/src/pages/HomePage.tsx).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-match-the-phase-1-premium-spacious-aesthetic-for-the-phase-2-section-mobile-first-spacing-navy-muted-gold-accents-clean-typography-and-maintain-semantic-seo-heading-hierarchy-no-additional-h1-use-h2-h3-as-appropriate-for-about-approach",
+      "title": "Match the Phase 1 premium, spacious aesthetic for the Phase 2 section (mobile-first spacing, navy + muted gold accents, clean typography) and maintain semantic/SEO heading hierarchy (no additional H1; use H2/H3 as appropriate for About/Approach).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Develop Ayanda Mdluli Attorneys premium, mobile-first, SEO-optimized marketing website using the provided phased roadmap and homepage sections",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement Phase 2: About / Firm Overview + Approach section on the homepage using the originally provided Phase 2 content and the same premium, spacious aesthetic established in Phase 1",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Ayanda Mdluli Attorneys",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
