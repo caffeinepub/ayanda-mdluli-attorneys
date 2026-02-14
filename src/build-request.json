@@ -1,73 +1,40 @@
 {
   "kind": "build_request",
-  "title": "Add 'Learn more about us' button in homepage About section linking to About page",
+  "title": "Remove the selected About page Team section H2 element entirely",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Add a new button labeled \"Learn more about us\" within the homepage About section (component: frontend/src/components/home/AboutApproachSection.tsx) and place it within the About / Firm Overview block so it appears after the overview text content.",
+      "text": "On the About page, delete the selected H2 element entirely (not just its text) at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/section[3]/div[1]/div[1]/div[1]/div[1]/h2[1] (the H2 within the Team section header block in frontend/src/pages/AboutPage.tsx).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4",
-          "msg-6"
+          "msg-1",
+          "msg-5",
+          "msg-7"
         ],
         "quotes": [
-          "Add a learn more about us button in the about section on the homepage. It should redirect to the existing about page",
-          "Proceed"
+          "Use the XPath expression to identify the element to edit.",
+          "Yes remove entirely",
+          "Build"
         ]
       },
       "acceptanceCriteria": [
-        "On the homepage, the About section displays a visible button with the exact label \"Learn more about us\".",
-        "The button is located in the About / Firm Overview portion of the section (not the \"Our Approach\" grid)."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Wire the new \"Learn more about us\" button to navigate to the existing About page route at \"/about\" using the app's client-side router navigation (import and use navigate from frontend/src/router/router.ts), without a full page reload.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "It should redirect to the existing about page"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Clicking the \"Learn more about us\" button navigates to the \"/about\" route and renders the existing AboutPage.",
-        "Navigation occurs via the SPA router (no full page refresh).",
-        "The URL becomes exactly \"/about\" after clicking the button."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Ensure the new button styling is consistent with existing call-to-action buttons in the app and includes basic accessibility support (keyboard focus visible, descriptive label text).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "Add a learn more about us button in the about section on the homepage."
-        ]
-      },
-      "acceptanceCriteria": [
-        "The button is reachable and clickable via keyboard (Tab + Enter/Space).",
-        "A visible focus style is present when the button is focused.",
-        "The button text is high-contrast and readable in both light and dark themes (no illegible text on background)."
+        "The Team section header block in frontend/src/pages/AboutPage.tsx no longer contains the empty <h2 ...>...</h2> element (it is removed from the JSX entirely).",
+        "No 'Meet Our Team' heading text (or any other text from that H2) is visible in that section.",
+        "All other content in the Team section (the paragraph text and team member rows) remains unchanged and still renders."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under frontend/src/hooks/useInternetIdentity.ts or frontend/src/hooks/useActor.ts (immutable paths).",
-    "Do not add new backend logic; the change should be frontend-only navigation/UI.",
-    "Keep the existing About page route registered at \"/about\" unchanged."
+    "Apply changes ONLY to the element identified by XPath /html[1]/body[1]/div[1]/div[1]/main[1]/section[3]/div[1]/div[1]/div[1]/div[1]/h2[1].",
+    "Do not edit any frontend immutable paths listed in SYSTEM_CONTEXT.",
+    "Do not introduce backend changes; this is a frontend-only DOM removal."
   ],
   "nonGoals": [
-    "Creating a new About page or changing About page content.",
-    "Adding new backend endpoints, storage, or authentication changes.",
-    "Adding analytics/event tracking for the button click."
+    "Removing or changing any other headings on the About page.",
+    "Removing placeholder images from the Team section (separate pending request).",
+    "Any design/theme overhaul unrelated to removing the selected H2 element."
   ],
   "imageRequirements": {
     "required": [],

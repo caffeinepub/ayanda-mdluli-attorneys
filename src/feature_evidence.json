@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-a-new-button-labeled-learn-more-about-us-within-the-homepage-about-section-component-frontend-src-components-home-aboutapproachsection-tsx-and-place-it-within-the-about-firm-overview-block-so-it-appears-after-the-overview-text-content",
-      "featureTitle": "Add a new button labeled \"Learn more about us\" within the homepage About section (component: frontend/src/components/home/AboutApproachSection.tsx) and place it within the About / Firm Overview block so it appears after the overview text content.",
+      "featureId": "feature-on-the-about-page-delete-the-selected-h2-element-entirely-not-just-its-text-at-xpath-html-1-body-1-div-1-div-1-main-1-section-3-div-1-div-1-div-1-div-1-h2-1-the-h2-within-the-team-section-header-block-in-frontend-src-pages-aboutpage-tsx",
+      "featureTitle": "On the About page, delete the selected H2 element entirely (not just its text) at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/section[3]/div[1]/div[1]/div[1]/div[1]/h2[1] (the H2 within the Team section header block in frontend/src/pages/AboutPage.tsx).",
       "files": [
-        "frontend/src/components/home/AboutApproachSection.tsx"
+        "frontend/src/pages/AboutPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,42 +16,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-wire-the-new-learn-more-about-us-button-to-navigate-to-the-existing-about-page-route-at-about-using-the-app-s-client-side-router-navigation-import-and-use-navigate-from-frontend-src-router-router-ts-without-a-full-page-reload",
-      "featureTitle": "Wire the new \"Learn more about us\" button to navigate to the existing About page route at \"/about\" using the app's client-side router navigation (import and use navigate from frontend/src/router/router.ts), without a full page reload.",
-      "files": [
-        "frontend/src/components/home/AboutApproachSection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-ensure-the-new-button-styling-is-consistent-with-existing-call-to-action-buttons-in-the-app-and-includes-basic-accessibility-support-keyboard-focus-visible-descriptive-label-text",
-      "featureTitle": "Ensure the new button styling is consistent with existing call-to-action buttons in the app and includes basic accessibility support (keyboard focus visible, descriptive label text).",
-      "files": [
-        "frontend/src/components/home/AboutApproachSection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
       ],
       "confidence": "high"
     }

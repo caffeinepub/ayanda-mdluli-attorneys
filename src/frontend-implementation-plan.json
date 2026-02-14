@@ -1,52 +1,21 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Homepage About section: add 'Learn more about us' CTA linking to /about",
+  "title": "Remove empty Team section H2 from About page",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add a \"Learn more about us\" button after the firm overview text in the homepage About section.",
+      "summary": "Remove the selected (currently empty) Team section header H2 element from AboutPage JSX entirely, leaving surrounding Team section content unchanged.",
       "acceptanceCriteria": [
-        "On the homepage, the About section displays a visible button with the exact label \"Learn more about us\".",
-        "The button is located in the About / Firm Overview portion of the section (not the \"Our Approach\" grid)."
+        "The Team section header block in frontend/src/pages/AboutPage.tsx no longer contains the empty <h2 ...>...</h2> element (it is removed from the JSX entirely).",
+        "No 'Meet Our Team' heading text (or any other text from that H2) is visible in that section.",
+        "All other content in the Team section (the paragraph text and team member rows) remains unchanged and still renders."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/home/AboutApproachSection.tsx",
+          "path": "frontend/src/pages/AboutPage.tsx",
           "operation": "modify",
-          "description": "Add a new button labeled \"Learn more about us\" within the About / Firm Overview block, placing it after the existing overview text content."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Navigate to the existing About page (\"/about\") via client-side router when the new button is clicked.",
-      "acceptanceCriteria": [
-        "Clicking the \"Learn more about us\" button navigates to the \"/about\" route and renders the existing AboutPage.",
-        "Navigation occurs via the SPA router (no full page refresh).",
-        "The URL becomes exactly \"/about\" after clicking the button."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/home/AboutApproachSection.tsx",
-          "operation": "modify",
-          "description": "Import and use navigate from frontend/src/router/router.ts to wire the \"Learn more about us\" button click handler to client-side navigation to \"/about\" (no window.location usage)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Match existing CTA styling and ensure accessible focus/keyboard interaction for the new button across themes.",
-      "acceptanceCriteria": [
-        "The button is reachable and clickable via keyboard (Tab + Enter/Space).",
-        "A visible focus style is present when the button is focused.",
-        "The button text is high-contrast and readable in both light and dark themes (no illegible text on background)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/home/AboutApproachSection.tsx",
-          "operation": "modify",
-          "description": "Apply existing CTA styling patterns (e.g., shared Tailwind utility classes / existing .btn-* conventions) and add explicit focus-visible styling (ring/outline) to ensure keyboard focus is clearly visible and text remains readable in light/dark themes."
+          "description": "Delete the specific <h2> element in the Team section header block corresponding to XPath /html[1]/body[1]/div[1]/div[1]/main[1]/section[3]/div[1]/div[1]/div[1]/div[1]/h2[1]. Apply changes only to this element; keep the Team section paragraph and TeamMemberRow list unchanged, and do not introduce any backend changes."
         }
       ]
     }
