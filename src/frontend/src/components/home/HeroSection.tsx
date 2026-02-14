@@ -1,14 +1,22 @@
 import { ArrowRight } from 'lucide-react';
+import { navigate } from '../../router/router';
 
 export default function HeroSection() {
     const handleScheduleConsultation = () => {
-        // Placeholder for future consultation scheduling functionality
-        console.log('Schedule consultation clicked');
+        const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+        if (currentPath === '/contact') {
+            // Already on contact page, scroll to form
+            const formElement = document.getElementById('consultation-form');
+            if (formElement) {
+                formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        } else {
+            navigate('/contact');
+        }
     };
 
     const handleContactUs = () => {
-        // Placeholder for future contact form functionality
-        console.log('Contact us clicked');
+        navigate('/contact');
     };
 
     return (

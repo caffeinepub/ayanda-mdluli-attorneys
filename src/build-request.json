@@ -1,73 +1,37 @@
 {
   "kind": "build_request",
-  "title": "Phase 2: Add About / Firm Overview + Approach section to homepage",
+  "title": "Add “Criminal defense” service option to Contact Us form",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-7",
-      "text": "Implement Phase 2 on the homepage by adding a new About / Firm Overview + Approach section immediately after the existing Trust / Intro section, using the exact Phase 2 content the user provided in their first prompt (no placeholder copy).",
+      "id": "REQ-1",
+      "text": "Add “Criminal defense” as a selectable service option in the Contact Us consultation form service selector (the accordion dropdown).",
       "target": "frontend",
       "source": {
         "messageIds": [
+          "msg-4",
           "msg-6"
         ],
         "quotes": [
-          "I provided the content for this phase in my first prompt look at it."
+          "Please also add Criminal defense as part of the services users can request services for in the form",
+          "Proceed"
         ]
       },
       "acceptanceCriteria": [
-        "A new section is rendered on the homepage directly below the TrustIntroSection.",
-        "All visible text in the new section matches the Phase 2 content from the user’s original prompt exactly (no lorem ipsum or invented copy).",
-        "No changes are made to the existing HeroSection or TrustIntroSection content."
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Create a dedicated React component for Phase 2 (About / Firm Overview + Approach) and wire it into the existing homepage composition (frontend/src/pages/HomePage.tsx).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-6"
-        ],
-        "quotes": [
-          "Yes it is"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A new component file exists under frontend/src/components/home/ for the Phase 2 section.",
-        "frontend/src/pages/HomePage.tsx imports and renders the new Phase 2 component after <TrustIntroSection />.",
-        "The build compiles with no TypeScript errors."
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "Match the Phase 1 premium, spacious aesthetic for the Phase 2 section (mobile-first spacing, navy + muted gold accents, clean typography) and maintain semantic/SEO heading hierarchy (no additional H1; use H2/H3 as appropriate for About/Approach).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-6"
-        ],
-        "quotes": [
-          "Yes"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The Phase 2 section uses the existing design system (Raleway headings, Inter body; consistent spacing; restrained accent usage) and looks coherent with Phase 1.",
-        "The Phase 2 section does not introduce any new H1; headings start at H2 and nest correctly (H3, etc.).",
-        "Layout is responsive: content remains readable and well-spaced on mobile, tablet, and desktop."
+        "On the Contact page, opening the “Service You Are Booking For” selector shows an option labeled exactly “Criminal defense”.",
+        "Selecting “Criminal defense” closes the accordion and populates the selected value in the service field.",
+        "Form validation continues to treat the service as selected when “Criminal defense” is chosen (i.e., no “Please select a service” error is shown after selection)."
       ]
     }
   ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui (read-only vendor components).",
-    "Do not modify immutable hook/provider files (frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx).",
-    "Backend changes are not required for Phase 2 (keep backend/main.mo as-is unless strictly necessary).",
-    "Use English for all user-facing text."
+    "Frontend immutable paths must not be modified: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui/*.",
+    "No backend changes are required for this request; keep backend/main.mo unchanged."
   ],
   "nonGoals": [
-    "Do not implement Phase 3+ homepage sections (Services/How-it-Works, Testimonials/Partners, FAQ, Footer) in this change.",
-    "Do not add new authentication flows, forms, or backend storage as part of Phase 2.",
-    "Do not introduce third-party integrations (chat, email services, maps, analytics beyond existing metadata)."
+    "Do not add new form fields or change the form submission behavior beyond adding the new service option.",
+    "Do not redesign or reorder existing service options unless required to add “Criminal defense”.",
+    "Do not add or modify services on other pages (e.g., ServicesPage) unless explicitly requested."
   ],
   "imageRequirements": {
     "required": [],

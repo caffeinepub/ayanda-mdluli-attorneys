@@ -2,11 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-implement-phase-2-on-the-homepage-by-adding-a-new-about-firm-overview-approach-section-immediately-after-the-existing-trust-intro-section-using-the-exact-phase-2-content-the-user-provided-in-their-first-prompt-no-placeholder-copy",
-      "featureTitle": "Implement Phase 2 on the homepage by adding a new About / Firm Overview + Approach section immediately after the existing Trust / Intro section, using the exact Phase 2 content the user provided in their first prompt (no placeholder copy).",
+      "featureId": "feature-add-criminal-defense-as-a-selectable-service-option-in-the-contact-us-consultation-form-service-selector-the-accordion-dropdown",
+      "featureTitle": "Add “Criminal defense” as a selectable service option in the Contact Us consultation form service selector (the accordion dropdown).",
       "files": [
-        "frontend/src/components/home/AboutApproachSection.tsx",
-        "frontend/src/pages/HomePage.tsx"
+        "frontend/src/components/contact/ServiceSelectorAccordion.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,44 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-7"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-create-a-dedicated-react-component-for-phase-2-about-firm-overview-approach-and-wire-it-into-the-existing-homepage-composition-frontend-src-pages-homepage-tsx",
-      "featureTitle": "Create a dedicated React component for Phase 2 (About / Firm Overview + Approach) and wire it into the existing homepage composition (frontend/src/pages/HomePage.tsx).",
-      "files": [
-        "frontend/src/components/home/AboutApproachSection.tsx",
-        "frontend/src/pages/HomePage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-8"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-match-the-phase-1-premium-spacious-aesthetic-for-the-phase-2-section-mobile-first-spacing-navy-muted-gold-accents-clean-typography-and-maintain-semantic-seo-heading-hierarchy-no-additional-h1-use-h2-h3-as-appropriate-for-about-approach",
-      "featureTitle": "Match the Phase 1 premium, spacious aesthetic for the Phase 2 section (mobile-first spacing, navy + muted gold accents, clean typography) and maintain semantic/SEO heading hierarchy (no additional H1; use H2/H3 as appropriate for About/Approach).",
-      "files": [
-        "frontend/src/components/home/AboutApproachSection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-9"
+        "REQ-1"
       ],
       "confidence": "high"
     }

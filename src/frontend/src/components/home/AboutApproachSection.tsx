@@ -1,6 +1,6 @@
 export default function AboutApproachSection() {
     return (
-        <section className="bg-background border-b border-border">
+        <section id="about" className="bg-background border-b border-border scroll-mt-16 md:scroll-mt-20">
             <div className="container-custom section-padding">
                 {/* About / Firm Overview */}
                 <div className="max-w-4xl mx-auto mb-20">
