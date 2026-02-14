@@ -19,8 +19,7 @@ export default function ServicesPage() {
               </h1>
               <div className="w-20 h-1 bg-accent mx-auto mb-8" />
               <p className="text-lg md:text-xl text-primary-foreground/90">
-                Comprehensive legal representation across a wide range of practice areas. 
-                Our experienced team is dedicated to protecting your rights and achieving the best outcomes.
+                Our services cover a wide range of legal matters, including family law, civil law, commercial law, labour law, and much more. Trust us to deliver expert guidance and support in all your legal needs.
               </p>
             </div>
           </div>
@@ -30,6 +29,17 @@ export default function ServicesPage() {
         <section className="section-padding">
           <div className="container-custom">
             <div className="max-w-6xl mx-auto">
+              {/* Practice Areas Header */}
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
+                  Practice Areas
+                </h2>
+                <div className="w-20 h-1 bg-accent mx-auto mb-6" />
+                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                  Ayanda Mdluli Attorneys specializes in a number of Practice Areas. Our experienced attorneys are here to answer your legal questions and provide you with the best legal advice.
+                </p>
+              </div>
+
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 {servicesData.map((service) => {
                   const Icon = service.icon;

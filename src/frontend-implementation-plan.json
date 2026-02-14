@@ -1,21 +1,52 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add “Criminal defense” option to Contact Us service selector",
+  "title": "Homepage About section: add 'Learn more about us' CTA linking to /about",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add “Criminal defense” as a selectable option in the Contact page consultation form service selector accordion.",
+      "summary": "Add a \"Learn more about us\" button after the firm overview text in the homepage About section.",
       "acceptanceCriteria": [
-        "On the Contact page, opening the “Service You Are Booking For” selector shows an option labeled exactly “Criminal defense”.",
-        "Selecting “Criminal defense” closes the accordion and populates the selected value in the service field.",
-        "Form validation continues to treat the service as selected when “Criminal defense” is chosen (i.e., no “Please select a service” error is shown after selection)."
+        "On the homepage, the About section displays a visible button with the exact label \"Learn more about us\".",
+        "The button is located in the About / Firm Overview portion of the section (not the \"Our Approach\" grid)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/contact/ServiceSelectorAccordion.tsx",
+          "path": "frontend/src/components/home/AboutApproachSection.tsx",
           "operation": "modify",
-          "description": "Add the new service label “Criminal defense” to the predefined SERVICES list used by the accordion dropdown so it appears as a selectable option and behaves consistently with existing selections (closes on select and updates the value)."
+          "description": "Add a new button labeled \"Learn more about us\" within the About / Firm Overview block, placing it after the existing overview text content."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Navigate to the existing About page (\"/about\") via client-side router when the new button is clicked.",
+      "acceptanceCriteria": [
+        "Clicking the \"Learn more about us\" button navigates to the \"/about\" route and renders the existing AboutPage.",
+        "Navigation occurs via the SPA router (no full page refresh).",
+        "The URL becomes exactly \"/about\" after clicking the button."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/home/AboutApproachSection.tsx",
+          "operation": "modify",
+          "description": "Import and use navigate from frontend/src/router/router.ts to wire the \"Learn more about us\" button click handler to client-side navigation to \"/about\" (no window.location usage)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Match existing CTA styling and ensure accessible focus/keyboard interaction for the new button across themes.",
+      "acceptanceCriteria": [
+        "The button is reachable and clickable via keyboard (Tab + Enter/Space).",
+        "A visible focus style is present when the button is focused.",
+        "The button text is high-contrast and readable in both light and dark themes (no illegible text on background)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/home/AboutApproachSection.tsx",
+          "operation": "modify",
+          "description": "Apply existing CTA styling patterns (e.g., shared Tailwind utility classes / existing .btn-* conventions) and add explicit focus-visible styling (ring/outline) to ensure keyboard focus is clearly visible and text remains readable in light/dark themes."
         }
       ]
     }

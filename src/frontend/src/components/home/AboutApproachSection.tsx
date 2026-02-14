@@ -1,4 +1,11 @@
+import { navigate } from "@/router/router";
+import { Button } from "@/components/ui/button";
+
 export default function AboutApproachSection() {
+    const handleLearnMore = () => {
+        navigate('/about');
+    };
+
     return (
         <section id="about" className="bg-background border-b border-border scroll-mt-16 md:scroll-mt-20">
             <div className="container-custom section-padding">
@@ -23,6 +30,17 @@ export default function AboutApproachSection() {
                         <p className="text-lg leading-relaxed">
                             Founded by Ayanda Mdluli, our practice combines deep legal expertise with a genuine commitment to justice and client advocacy. We believe that quality legal representation should be accessible, transparent, and focused on achieving the best possible outcomes for those we represent.
                         </p>
+                    </div>
+
+                    {/* Learn More Button */}
+                    <div className="flex justify-center mt-10">
+                        <Button
+                            onClick={handleLearnMore}
+                            size="lg"
+                            className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 py-6 text-base transition-all duration-300 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                        >
+                            Learn more about us
+                        </Button>
                     </div>
                 </div>
                 

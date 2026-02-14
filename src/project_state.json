@@ -1,16 +1,32 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
+  "summary": "Add a “Learn more about us” button to the About section on the homepage that links to the existing About page.",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-add-criminal-defense-as-a-selectable-service-option-in-the-contact-us-consultation-form-service-selector-the-accordion-dropdown",
-      "title": "Add “Criminal defense” as a selectable service option in the Contact Us consultation form service selector (the accordion dropdown).",
+      "id": "feature-add-a-new-button-labeled-learn-more-about-us-within-the-homepage-about-section-component-frontend-src-components-home-aboutapproachsection-tsx-and-place-it-within-the-about-firm-overview-block-so-it-appears-after-the-overview-text-content",
+      "title": "Add a new button labeled \"Learn more about us\" within the homepage About section (component: frontend/src/components/home/AboutApproachSection.tsx) and place it within the About / Firm Overview block so it appears after the overview text content.",
       "reqIds": [
         "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-wire-the-new-learn-more-about-us-button-to-navigate-to-the-existing-about-page-route-at-about-using-the-app-s-client-side-router-navigation-import-and-use-navigate-from-frontend-src-router-router-ts-without-a-full-page-reload",
+      "title": "Wire the new \"Learn more about us\" button to navigate to the existing About page route at \"/about\" using the app's client-side router navigation (import and use navigate from frontend/src/router/router.ts), without a full page reload.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-new-button-styling-is-consistent-with-existing-call-to-action-buttons-in-the-app-and-includes-basic-accessibility-support-keyboard-focus-visible-descriptive-label-text",
+      "title": "Ensure the new button styling is consistent with existing call-to-action buttons in the app and includes basic accessibility support (keyboard focus visible, descriptive label text).",
+      "reqIds": [
+        "REQ-3"
       ],
       "version": 1
     }
@@ -18,12 +34,13 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Add “Criminal defense” as a selectable service option in the Contact Us/services request form",
+      "summary": "Add a “Learn more about us” button in the homepage About section linking to the existing About page",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "Add “Criminal defense” service option to Contact Us form",
+  "gameProjectType": "none",
+  "projectName": "Add 'Learn more about us' button in homepage About section linking to About page",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

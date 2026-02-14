@@ -1,11 +1,11 @@
 {
   "kind": "build_request",
-  "title": "Add “Criminal defense” service option to Contact Us form",
+  "title": "Add 'Learn more about us' button in homepage About section linking to About page",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Add “Criminal defense” as a selectable service option in the Contact Us consultation form service selector (the accordion dropdown).",
+      "text": "Add a new button labeled \"Learn more about us\" within the homepage About section (component: frontend/src/components/home/AboutApproachSection.tsx) and place it within the About / Firm Overview block so it appears after the overview text content.",
       "target": "frontend",
       "source": {
         "messageIds": [
@@ -13,25 +13,61 @@
           "msg-6"
         ],
         "quotes": [
-          "Please also add Criminal defense as part of the services users can request services for in the form",
+          "Add a learn more about us button in the about section on the homepage. It should redirect to the existing about page",
           "Proceed"
         ]
       },
       "acceptanceCriteria": [
-        "On the Contact page, opening the “Service You Are Booking For” selector shows an option labeled exactly “Criminal defense”.",
-        "Selecting “Criminal defense” closes the accordion and populates the selected value in the service field.",
-        "Form validation continues to treat the service as selected when “Criminal defense” is chosen (i.e., no “Please select a service” error is shown after selection)."
+        "On the homepage, the About section displays a visible button with the exact label \"Learn more about us\".",
+        "The button is located in the About / Firm Overview portion of the section (not the \"Our Approach\" grid)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Wire the new \"Learn more about us\" button to navigate to the existing About page route at \"/about\" using the app's client-side router navigation (import and use navigate from frontend/src/router/router.ts), without a full page reload.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "It should redirect to the existing about page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking the \"Learn more about us\" button navigates to the \"/about\" route and renders the existing AboutPage.",
+        "Navigation occurs via the SPA router (no full page refresh).",
+        "The URL becomes exactly \"/about\" after clicking the button."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Ensure the new button styling is consistent with existing call-to-action buttons in the app and includes basic accessibility support (keyboard focus visible, descriptive label text).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Add a learn more about us button in the about section on the homepage."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The button is reachable and clickable via keyboard (Tab + Enter/Space).",
+        "A visible focus style is present when the button is focused.",
+        "The button text is high-contrast and readable in both light and dark themes (no illegible text on background)."
       ]
     }
   ],
   "constraints": [
-    "Frontend immutable paths must not be modified: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui/*.",
-    "No backend changes are required for this request; keep backend/main.mo unchanged."
+    "Do not modify any files under frontend/src/hooks/useInternetIdentity.ts or frontend/src/hooks/useActor.ts (immutable paths).",
+    "Do not add new backend logic; the change should be frontend-only navigation/UI.",
+    "Keep the existing About page route registered at \"/about\" unchanged."
   ],
   "nonGoals": [
-    "Do not add new form fields or change the form submission behavior beyond adding the new service option.",
-    "Do not redesign or reorder existing service options unless required to add “Criminal defense”.",
-    "Do not add or modify services on other pages (e.g., ServicesPage) unless explicitly requested."
+    "Creating a new About page or changing About page content.",
+    "Adding new backend endpoints, storage, or authentication changes.",
+    "Adding analytics/event tracking for the button click."
   ],
   "imageRequirements": {
     "required": [],
