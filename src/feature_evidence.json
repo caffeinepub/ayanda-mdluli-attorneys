@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-the-uploaded-image-law-firms1-jpeg-to-the-frontend-static-assets-and-render-it-as-the-full-cover-background-image-of-the-existing-homepage-hero-section-frontend-src-components-home-herosection-tsx",
-      "featureTitle": "Add the uploaded image `Law-firms1.jpeg` to the frontend static assets and render it as the full-cover background image of the existing homepage hero section (`frontend/src/components/home/HeroSection.tsx`).",
+      "featureId": "feature-add-the-uploaded-image-file-pexels-sora-shimazaki-5668882-jpg-to-the-frontend-as-a-static-asset-e-g-under-frontend-public-and-use-it-as-the-background-image-for-the-selected-contact-page-section-at-xpath-html-1-body-1-div-1-div-1-div-1-main-1-section-1-the-first-section-in-frontend-src-pages-contactpage-tsx-currently-the-hero-section",
+      "featureTitle": "Add the uploaded image file `pexels-sora-shimazaki-5668882.jpg` to the frontend as a static asset (e.g., under `frontend/public/`) and use it as the background image for the selected Contact page section at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` (the first `<section>` in `frontend/src/pages/ContactPage.tsx`, currently the “Hero Section”).",
       "files": [
-        "frontend/src/components/home/HeroSection.tsx"
+        "frontend/src/pages/ContactPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -20,10 +20,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-apply-a-dark-tint-overlay-on-top-of-the-hero-background-image-while-keeping-the-existing-hero-text-and-cta-readable-and-visually-unchanged-in-layout",
-      "featureTitle": "Apply a dark tint overlay on top of the hero background image while keeping the existing hero text and CTA readable and visually unchanged in layout.",
+      "featureId": "feature-update-the-selected-contact-page-hero-section-to-be-full-bleed-with-the-background-image-covering-the-entire-section-responsive-cover-behavior-centered-and-add-a-dark-dimmed-overlay-layer-above-the-image-but-behind-the-text-to-ensure-readability-and-visual-blending-with-the-site-theme",
+      "featureTitle": "Update the selected Contact page hero section to be full-bleed with the background image covering the entire section (responsive `cover` behavior, centered), and add a dark dimmed overlay layer above the image but behind the text to ensure readability and visual blending with the site theme.",
       "files": [
-        "frontend/src/components/home/HeroSection.tsx"
+        "frontend/src/pages/ContactPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -34,6 +34,24 @@
       ],
       "testIds": [
         "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-keep-the-existing-hero-content-heading-book-now-accent-divider-and-description-text-visually-consistent-with-the-current-website-styling-while-applying-the-new-background-overlay-no-copy-changes-only-visual-styling-changes-to-the-selected-section",
+      "featureTitle": "Keep the existing hero content (heading “Book Now”, accent divider, and description text) visually consistent with the current website styling while applying the new background/overlay (no copy changes; only visual/styling changes to the selected section).",
+      "files": [
+        "frontend/src/pages/ContactPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
       ],
       "confidence": "high"
     }

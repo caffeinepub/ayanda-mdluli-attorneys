@@ -1,24 +1,34 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
-  "architectural_notes": [],
+  "summary": "Website update: apply a user-provided image as a full-bleed background on the selected Contact page section with a dark dimmed overlay for readability.",
+  "architectural_notes": [
+    "Implement section background image using full-bleed cover styling plus a dark overlay layer (opacity/dimness) to maintain text contrast and visual consistency."
+  ],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-add-the-uploaded-image-law-firms1-jpeg-to-the-frontend-static-assets-and-render-it-as-the-full-cover-background-image-of-the-existing-homepage-hero-section-frontend-src-components-home-herosection-tsx",
-      "title": "Add the uploaded image `Law-firms1.jpeg` to the frontend static assets and render it as the full-cover background image of the existing homepage hero section (`frontend/src/components/home/HeroSection.tsx`).",
+      "id": "feature-add-the-uploaded-image-file-pexels-sora-shimazaki-5668882-jpg-to-the-frontend-as-a-static-asset-e-g-under-frontend-public-and-use-it-as-the-background-image-for-the-selected-contact-page-section-at-xpath-html-1-body-1-div-1-div-1-div-1-main-1-section-1-the-first-section-in-frontend-src-pages-contactpage-tsx-currently-the-hero-section",
+      "title": "Add the uploaded image file `pexels-sora-shimazaki-5668882.jpg` to the frontend as a static asset (e.g., under `frontend/public/`) and use it as the background image for the selected Contact page section at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` (the first `<section>` in `frontend/src/pages/ContactPage.tsx`, currently the “Hero Section”).",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-apply-a-dark-tint-overlay-on-top-of-the-hero-background-image-while-keeping-the-existing-hero-text-and-cta-readable-and-visually-unchanged-in-layout",
-      "title": "Apply a dark tint overlay on top of the hero background image while keeping the existing hero text and CTA readable and visually unchanged in layout.",
+      "id": "feature-update-the-selected-contact-page-hero-section-to-be-full-bleed-with-the-background-image-covering-the-entire-section-responsive-cover-behavior-centered-and-add-a-dark-dimmed-overlay-layer-above-the-image-but-behind-the-text-to-ensure-readability-and-visual-blending-with-the-site-theme",
+      "title": "Update the selected Contact page hero section to be full-bleed with the background image covering the entire section (responsive `cover` behavior, centered), and add a dark dimmed overlay layer above the image but behind the text to ensure readability and visual blending with the site theme.",
       "reqIds": [
         "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-keep-the-existing-hero-content-heading-book-now-accent-divider-and-description-text-visually-consistent-with-the-current-website-styling-while-applying-the-new-background-overlay-no-copy-changes-only-visual-styling-changes-to-the-selected-section",
+      "title": "Keep the existing hero content (heading “Book Now”, accent divider, and description text) visually consistent with the current website styling while applying the new background/overlay (no copy changes; only visual/styling changes to the selected section).",
+      "reqIds": [
+        "REQ-3"
       ],
       "version": 1
     }
@@ -26,12 +36,13 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Set the existing homepage hero section background to the provided image with full-cover styling and a dark tint overlay",
+      "summary": "Set the uploaded image as the background for the selected Contact page section; full-bleed cover with a dark dimmed overlay to blend with site theme and keep text readable; proceed with build.",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "Set uploaded image as homepage hero background with dark tint",
+  "gameProjectType": "none",
+  "projectName": "Set Contact page hero section background image with dark dimmed overlay (full-bleed)",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

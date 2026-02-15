@@ -1,68 +1,79 @@
 {
   "kind": "build_request",
-  "title": "Set uploaded image as homepage hero background with dark tint",
+  "title": "Set Contact page hero section background image with dark dimmed overlay (full-bleed)",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Add the uploaded image `Law-firms1.jpeg` to the frontend static assets and render it as the full-cover background image of the existing homepage hero section (`frontend/src/components/home/HeroSection.tsx`).",
+      "text": "Add the uploaded image file `pexels-sora-shimazaki-5668882.jpg` to the frontend as a static asset (e.g., under `frontend/public/`) and use it as the background image for the selected Contact page section at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` (the first `<section>` in `frontend/src/pages/ContactPage.tsx`, currently the “Hero Section”).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "recent-messages-user-1",
-          "recent-messages-user-2"
+          "msg-1"
         ],
         "quotes": [
-          "Put this image as the background image of the hero section",
-          "Apply the change"
+          "Use this image for the background of this (selected section) for the contact page.",
+          "The user has uploaded 3 image(s): pexels-sora-shimazaki-5668882.jpg, pexels-sora-shimazaki-5668882-1.jpg, pexels-sora-shimazaki-5668882-2.jpg.",
+          "Element 1 XPath: /html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]",
+          "Just one *I uploaded more by mistake"
         ]
       },
       "acceptanceCriteria": [
-        "`Law-firms1.jpeg` is present under a public static path (e.g., `frontend/public/assets/...`) so it is served at runtime without involving the backend.",
-        "The hero section uses the image via CSS `background-image` (or an equivalent approach) and the image covers the hero area using `background-size: cover` and `background-position: center`.",
-        "The previous solid background color does not visually block the image (i.e., the image is clearly visible behind the hero content)."
+        "The Contact page hero section (first `<section>` in `ContactPage.tsx`) renders with `pexels-sora-shimazaki-5668882.jpg` as its background.",
+        "The other two uploaded duplicate images are not used by the UI."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Apply a dark tint overlay on top of the hero background image while keeping the existing hero text and CTA readable and visually unchanged in layout.",
+      "text": "Update the selected Contact page hero section to be full-bleed with the background image covering the entire section (responsive `cover` behavior, centered), and add a dark dimmed overlay layer above the image but behind the text to ensure readability and visual blending with the site theme.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "recent-messages-user-3"
+          "msg-1"
         ],
         "quotes": [
-          "Yes dark tint."
+          "1. Dark dimmed overlay",
+          "2. Whole section full bleed",
+          "Make sure the image blends well with the text and style and theme of the website. Maybe you can work around the opacity or dimness but make it visually pleasing"
         ]
       },
       "acceptanceCriteria": [
-        "A dark overlay layer (e.g., semi-transparent black) is rendered over the background image and under the hero content.",
-        "Hero heading, paragraph, and CTA button remain readable on top of the tinted background across common viewport sizes (mobile and desktop).",
-        "Overlay does not block interaction with the CTA button (pointer events are not intercepted)."
+        "On mobile and desktop, the background image fills the entire hero section area without tiling or stretching artifacts (uses a cover-like behavior).",
+        "A dark dimming overlay is visible over the background image, and hero text remains clearly readable (sufficient contrast).",
+        "The overlay does not affect layout or interactivity of hero content (text remains selectable/clickable as expected)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Keep the existing hero content (heading “Book Now”, accent divider, and description text) visually consistent with the current website styling while applying the new background/overlay (no copy changes; only visual/styling changes to the selected section).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Proceed with the build",
+          "Make sure the image blends well with the text and style and theme of the website."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero title, divider, and description copy remain unchanged.",
+        "No visual regressions are introduced to non-selected sections of the Contact page (e.g., the contact form section styles remain the same)."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under `frontend/src/components/ui` (read-only component sources).",
-    "Backend remains single-actor; no backend changes are required for this static hero background update."
+    "Apply changes ONLY to the selected section (XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]`) on the Contact page.",
+    "Do not edit any files under `frontend/src/components/ui` (read-only components must be composed, not modified).",
+    "Backend remains single-actor Motoko; no backend changes are required for this styling update."
   ],
   "nonGoals": [
-    "Creating a new hero section from scratch (use the existing homepage hero section).",
-    "Changing hero copy, CTA behavior, or navigation logic.",
-    "Adding backend storage or upload handling for hero images."
+    "Do not implement new contact form behavior, validation rules, or backend submission.",
+    "Do not redesign other sections of the Contact page beyond ensuring the hero section background/overlay blends with the existing theme.",
+    "Do not add a carousel or slideshow to the Contact page hero; use only one image as specified."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

@@ -1,42 +1,56 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Set homepage hero background image with dark tint overlay",
+  "title": "Contact page hero: full-bleed background image with dark dim overlay",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add Law-firms1.jpeg as a public static asset and use it as the existing homepage HeroSection full-cover background.",
+      "summary": "Add the provided hero background image as a public static asset and apply it to the Contact page hero section background (only that section), without using the duplicate uploads.",
       "acceptanceCriteria": [
-        "`Law-firms1.jpeg` is present under a public static path (e.g., `frontend/public/assets/...`) so it is served at runtime without involving the backend.",
-        "The hero section uses the image via CSS `background-image` (or an equivalent approach) and the image covers the hero area using `background-size: cover` and `background-position: center`.",
-        "The previous solid background color does not visually block the image (i.e., the image is clearly visible behind the hero content)."
+        "The Contact page hero section (first `<section>` in `ContactPage.tsx`) renders with `pexels-sora-shimazaki-5668882.jpg` as its background.",
+        "The other two uploaded duplicate images are not used by the UI."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/Law-firms1.jpeg",
+          "path": "frontend/public/assets/pexels-sora-shimazaki-5668882.jpg",
           "operation": "create",
-          "description": "Add the uploaded image file to the public static assets so it can be referenced at runtime by the HeroSection background without backend involvement."
+          "description": "Add the uploaded image file as a static public asset so it can be referenced by the Contact page hero background."
         },
         {
-          "path": "frontend/src/components/home/HeroSection.tsx",
+          "path": "frontend/src/pages/ContactPage.tsx",
           "operation": "modify",
-          "description": "Update the existing hero section root container to render `frontend/public/assets/Law-firms1.jpeg` as a CSS background image with full-cover behavior (centered and covering the hero area), ensuring the previous solid background does not obscure the image."
+          "description": "Update only the first <section> (Hero Section) to reference the static asset at frontend/public/assets/pexels-sora-shimazaki-5668882.jpg as its background image, and ensure no references are added to pexels-sora-shimazaki-5668882-1.jpg or pexels-sora-shimazaki-5668882-2.jpg."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Add a dark tint overlay over the hero background image without changing layout and keeping CTA interaction intact.",
+      "summary": "Make the Contact hero section full-bleed with responsive cover/center background behavior and add a dark overlay layer behind the text for readability.",
       "acceptanceCriteria": [
-        "A dark overlay layer (e.g., semi-transparent black) is rendered over the background image and under the hero content.",
-        "Hero heading, paragraph, and CTA button remain readable on top of the tinted background across common viewport sizes (mobile and desktop).",
-        "Overlay does not block interaction with the CTA button (pointer events are not intercepted)."
+        "On mobile and desktop, the background image fills the entire hero section area without tiling or stretching artifacts (uses a cover-like behavior).",
+        "A dark dimming overlay is visible over the background image, and hero text remains clearly readable (sufficient contrast).",
+        "The overlay does not affect layout or interactivity of hero content (text remains selectable/clickable as expected)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/home/HeroSection.tsx",
+          "path": "frontend/src/pages/ContactPage.tsx",
           "operation": "modify",
-          "description": "Add an overlay layer positioned between the hero background image and the hero content (e.g., an absolutely positioned semi-transparent dark layer) while keeping the existing text/CTA layout unchanged; ensure the overlay does not intercept pointer events so the CTA remains clickable."
+          "description": "Within the first <section> only, implement full-bleed background behavior (cover + centered, no-repeat) and add an overlay layer (e.g., an absolutely-positioned element) above the image but below hero content, with appropriate stacking context so the text remains interactive."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Preserve the existing hero copy and maintain current site styling consistency while applying only the new hero background/overlay changes, avoiding regressions in other Contact sections.",
+      "acceptanceCriteria": [
+        "Hero title, divider, and description copy remain unchanged.",
+        "No visual regressions are introduced to non-selected sections of the Contact page (e.g., the contact form section styles remain the same)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Adjust only styling/layout wrappers inside the first <section> as needed to keep the existing heading (“Book Now”), accent divider, and description visually consistent and readable over the new background/overlay, without changing any text and without modifying the later Contact Form section."
         }
       ]
     }

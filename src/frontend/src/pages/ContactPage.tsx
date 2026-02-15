@@ -116,15 +116,27 @@ export default function ContactPage() {
   return (
     <>
       <main className="min-h-screen bg-background">
-        {/* Hero Section */}
-        <section className="bg-primary text-primary-foreground py-16 md:py-24">
-          <div className="container-custom">
+        {/* Hero Section with Background Image */}
+        <section className="relative py-16 md:py-24 overflow-hidden">
+          {/* Background Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: 'url(/assets/pexels-sora-shimazaki-5668882.jpg)',
+            }}
+          />
+          
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/60" />
+
+          {/* Content */}
+          <div className="container-custom relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+              <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white">
                 Book Now
               </h1>
               <div className="w-20 h-1 bg-accent mx-auto mb-8" />
-              <p className="text-lg md:text-xl text-primary-foreground/90">
+              <p className="text-lg md:text-xl text-white/90">
                 Schedule your consultation today. Our experienced legal team is ready to assist you with your legal matters.
               </p>
             </div>

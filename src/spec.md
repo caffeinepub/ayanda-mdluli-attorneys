@@ -1,11 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Set the uploaded `Law-firms1.jpeg` as the existing homepage hero section background and apply a dark tint overlay for readability.
+**Goal:** Update the Contact page hero section to use the provided photo as a full-bleed background with a dark dimmed overlay for readable, theme-consistent text.
 
 **Planned changes:**
-- Add `Law-firms1.jpeg` to a public static assets path (e.g., `frontend/public/assets/`) so it can be served at runtime.
-- Update `frontend/src/components/home/HeroSection.tsx` to render `Law-firms1.jpeg` as a full-cover hero background (centered, `background-size: cover`).
-- Add a semi-transparent dark overlay over the background image and beneath the hero content, ensuring the CTA remains clickable and text stays readable without layout changes.
+- Add `pexels-sora-shimazaki-5668882.jpg` to the frontend as a static asset and set it as the background image for the Contact page hero section (the first `<section>` in `frontend/src/pages/ContactPage.tsx`).
+- Style the hero section background to be full-bleed and responsive (centered, cover behavior) with no tiling/stretch artifacts.
+- Add a dark overlay layer above the background image but behind the hero content so the existing “Book Now” heading, divider, and description remain readable and unchanged.
+- Ensure only the selected hero section is affected; other Contact page sections remain visually unchanged, and the other duplicate uploaded images are not used.
 
-**User-visible outcome:** The homepage hero displays the uploaded law-themed image as its background with a dark tint, while the existing hero text and CTA remain readable and usable on mobile and desktop.
+**User-visible outcome:** The Contact page hero displays a full-width background image with a dark dimming overlay, preserving the existing hero text content and overall site styling while improving readability.

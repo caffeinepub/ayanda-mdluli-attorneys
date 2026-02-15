@@ -1,39 +1,46 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-15T21:51:53.713Z",
-  "summary": "HeroSection.tsx was updated to use `/assets/Law-firms1.jpeg` as a full-cover background with a dark overlay layer that does not intercept pointer events. However, the actual image file was not added to a public static assets path in this diff (no added files), so the runtime asset requirement is not satisfied based on the provided changes.",
+  "generatedAt": "2026-02-15T23:26:56.655Z",
+  "summary": "The diff updates the Contact page hero section to use an absolute-positioned background image with a dark overlay and keeps the “Book Now” heading. However, the required static image asset is not added in the diff, and significant unrequested changes were introduced to the contact form (validation, submission simulation, and submitted state), which violates the non-goals/constraints to only change the selected hero section styling.",
   "missing_requirements": [
     {
       "id": "REQ-1",
-      "requirement": "Add the uploaded image `Law-firms1.jpeg` to the frontend static assets under a public static path (e.g., `frontend/public/assets/...`) so it is served at runtime without involving the backend.",
-      "reason": "The diff summary shows \"Added: 0\" and no new asset file under `frontend/public/assets/...` (or similar). Although HeroSection references `/assets/Law-firms1.jpeg`, the image itself is not present in the diff.",
+      "requirement": "Add the uploaded image file `pexels-sora-shimazaki-5668882.jpg` to the frontend as a static asset (e.g., under `frontend/public/`) and use it as the hero background.",
+      "reason": "No new static asset file is added in the diff (\"Added: 0\"), so the referenced `/assets/pexels-sora-shimazaki-5668882.jpg` may not exist in the repo as required.",
       "evidence": [
-        "File diff summary header: \"Added: 0\"",
-        "frontend/src/components/home/HeroSection.tsx (references `url(/assets/Law-firms1.jpeg)` but no asset file added)"
+        "File diff summary: Added: 0",
+        "frontend/src/pages/ContactPage.tsx (references `url(/assets/pexels-sora-shimazaki-5668882.jpg)` but no asset file is shown as added)"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Updated internal tracking/state file `project_state.json` with new_feature_requests entries (AR-1/AR-2/AR-3).",
-      "reason": "The BuildRequest does not mention modifying any project state/tracking JSON; this appears to be an extra change unrelated to implementing the hero background/overlay.",
+      "description": "Added contact form validation rules and error messages (e.g., required fields, email regex validation).",
+      "reason": "Explicit non-goal: do not implement new contact form behavior or validation rules; changes were supposed to be styling-only for the hero section.",
       "evidence": [
-        "project_state.json"
+        "frontend/src/pages/ContactPage.tsx (added `validateForm`, `FormErrors`, required field checks, email regex)"
       ]
     },
     {
-      "description": "Modified `frontend-file-summaries.txt` (documentation/summary content).",
-      "reason": "The BuildRequest does not request updating summary/documentation files; this appears unrelated to the functional requirements.",
+      "description": "Simulated async form submission flow with loading/submitted state and auto-reset timer.",
+      "reason": "Explicit non-goal: no new contact form behavior or submission behavior; styling-only request.",
       "evidence": [
-        "frontend-file-summaries.txt"
+        "frontend/src/pages/ContactPage.tsx (added `isSubmitting`, `isSubmitted`, `handleSubmit` with `setTimeout` and simulated delay)"
+      ]
+    },
+    {
+      "description": "Modified code outside the selected hero section scope (introduced new state and handlers at the page level).",
+      "reason": "Constraint: apply changes ONLY to the selected hero section; page-level behavioral code changes go beyond that section styling update.",
+      "evidence": [
+        "frontend/src/pages/ContactPage.tsx (added multiple `useState` hooks and handlers unrelated to hero background/overlay)"
       ]
     }
   ],
-  "confidence": 0.74,
+  "confidence": 0.78,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/components/home/HeroSection.tsx",
+    "frontend/src/pages/ContactPage.tsx",
     "project_state.json"
   ]
 }
