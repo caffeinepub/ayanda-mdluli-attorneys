@@ -1,9 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Remove the specific Team section header H2 element from the About page.
+**Goal:** Make the homepage Final CTA section match the site’s white section styling and simplify its content by removing secondary elements.
 
 **Planned changes:**
-- In `frontend/src/pages/AboutPage.tsx`, delete the Team section header block’s `<h2>` element identified by XPath `/html[1]/body[1]/div[1]/div[1]/main[1]/section[3]/div[1]/div[1]/div[1]/div[1]/h2[1]` (remove the JSX element entirely, not just its text).
+- Update `frontend/src/components/home/FinalCtaSection.tsx` so the `<section id="contact">` renders on a white background (remove primary/navy background styling) while keeping text readable on white.
+- Remove the secondary "Contact Us Today" button from `FinalCtaSection`, including any now-unused handler logic/imports used only for that button.
+- Remove the consultation availability text block ("Available for consultations across South Africa...") and ensure spacing/layout remains clean with no leftover divider/border artifacts.
 
-**User-visible outcome:** The Team section no longer shows the “Meet Our Team” (or any) H2 heading, while the rest of the Team section content remains unchanged and still renders.
+**User-visible outcome:** The homepage CTA section appears on a white background consistent with the rest of the homepage, shows only the remaining primary CTA button (still functioning as before), and no longer displays the secondary button or consultation availability text.

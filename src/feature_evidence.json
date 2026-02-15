@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-on-the-about-page-delete-the-selected-h2-element-entirely-not-just-its-text-at-xpath-html-1-body-1-div-1-div-1-main-1-section-3-div-1-div-1-div-1-div-1-h2-1-the-h2-within-the-team-section-header-block-in-frontend-src-pages-aboutpage-tsx",
-      "featureTitle": "On the About page, delete the selected H2 element entirely (not just its text) at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/section[3]/div[1]/div[1]/div[1]/div[1]/h2[1] (the H2 within the Team section header block in frontend/src/pages/AboutPage.tsx).",
+      "featureId": "feature-update-the-homepage-cta-section-component-finalctasection-so-its-background-is-white-matching-the-other-homepage-sections",
+      "featureTitle": "Update the homepage CTA section component (FinalCtaSection) so its background is white, matching the other homepage sections.",
       "files": [
-        "frontend/src/pages/AboutPage.tsx"
+        "frontend/src/components/home/FinalCtaSection.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,6 +16,42 @@
       ],
       "testIds": [
         "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-the-contact-us-today-button-from-the-homepage-cta-section-finalctasection-including-any-unused-click-handler-logic-or-imports-that-are-only-needed-for-that-button",
+      "featureTitle": "Remove the \"Contact Us Today\" button from the homepage CTA section (FinalCtaSection), including any unused click-handler logic or imports that are only needed for that button.",
+      "files": [
+        "frontend/src/components/home/FinalCtaSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-the-consultation-availability-text-block-from-the-homepage-cta-section-finalctasection",
+      "featureTitle": "Remove the consultation availability text block from the homepage CTA section (FinalCtaSection).",
+      "files": [
+        "frontend/src/components/home/FinalCtaSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
       ],
       "confidence": "high"
     }

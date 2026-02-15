@@ -1,21 +1,51 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Remove empty Team section H2 from About page",
+  "title": "Homepage Final CTA section cleanup and white background",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Remove the selected (currently empty) Team section header H2 element from AboutPage JSX entirely, leaving surrounding Team section content unchanged.",
+      "summary": "Change FinalCtaSection background from primary (navy) to white to match other homepage sections while keeping text readable.",
       "acceptanceCriteria": [
-        "The Team section header block in frontend/src/pages/AboutPage.tsx no longer contains the empty <h2 ...>...</h2> element (it is removed from the JSX entirely).",
-        "No 'Meet Our Team' heading text (or any other text from that H2) is visible in that section.",
-        "All other content in the Team section (the paragraph text and team member rows) remains unchanged and still renders."
+        "In `frontend/src/components/home/FinalCtaSection.tsx`, the `<section id=\"contact\">` no longer uses the primary (navy) background styling and renders on a white background consistent with the rest of the homepage.",
+        "Text colors within the section remain readable on a white background (no low-contrast white-on-white)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/AboutPage.tsx",
+          "path": "frontend/src/components/home/FinalCtaSection.tsx",
           "operation": "modify",
-          "description": "Delete the specific <h2> element in the Team section header block corresponding to XPath /html[1]/body[1]/div[1]/div[1]/main[1]/section[3]/div[1]/div[1]/div[1]/div[1]/h2[1]. Apply changes only to this element; keep the Team section paragraph and TeamMemberRow list unchanged, and do not introduce any backend changes."
+          "description": "Update the `<section id=\"contact\">` styling to use a white/light background consistent with other sections (e.g., replace `bg-primary` with a white/background utility) and adjust heading/body text classes away from `text-primary-foreground` to readable on-white text colors; keep existing spacing/structure intact."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Remove the secondary \"Contact Us Today\" CTA button from FinalCtaSection and clean up any now-unused code.",
+      "acceptanceCriteria": [
+        "The secondary CTA button labeled \"Contact Us Today\" is no longer rendered in `FinalCtaSection`.",
+        "Any now-unused code related only to the removed button (e.g., handler function and icon import) is removed or refactored so there are no lint/type errors.",
+        "The remaining primary button continues to work (scrolls to #contact when on the homepage and navigates to `/#contact` otherwise)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/home/FinalCtaSection.tsx",
+          "operation": "modify",
+          "description": "Remove the secondary button markup and delete `handleSecondaryClick`; remove any imports only used for that button (e.g., `Mail`) and ensure the remaining primary button’s click behavior remains unchanged and type/lint clean."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Remove the consultation availability footer text block from FinalCtaSection and ensure spacing remains clean.",
+      "acceptanceCriteria": [
+        "The footer text block containing \"Available for consultations across South Africa...\" is no longer rendered in `FinalCtaSection`.",
+        "The CTA section layout still has appropriate spacing after removing the text block (no awkward extra border/divider left behind)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/home/FinalCtaSection.tsx",
+          "operation": "modify",
+          "description": "Delete the bottom availability text block container (including its border/divider) and tune surrounding margin/padding so the section ends with visually appropriate spacing after the removal."
         }
       ]
     }

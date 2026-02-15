@@ -3,16 +3,30 @@
   "projectStateVersion": 3,
   "summary": "New project",
   "architectural_notes": [],
-  "known_issues": [
-    "User reports the text/h2 element was not removed as expected; needs verification after build."
-  ],
-  "isFixRequest": true,
+  "known_issues": [],
+  "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-on-the-about-page-delete-the-selected-h2-element-entirely-not-just-its-text-at-xpath-html-1-body-1-div-1-div-1-main-1-section-3-div-1-div-1-div-1-div-1-h2-1-the-h2-within-the-team-section-header-block-in-frontend-src-pages-aboutpage-tsx",
-      "title": "On the About page, delete the selected H2 element entirely (not just its text) at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/section[3]/div[1]/div[1]/div[1]/div[1]/h2[1] (the H2 within the Team section header block in frontend/src/pages/AboutPage.tsx).",
+      "id": "feature-update-the-homepage-cta-section-component-finalctasection-so-its-background-is-white-matching-the-other-homepage-sections",
+      "title": "Update the homepage CTA section component (FinalCtaSection) so its background is white, matching the other homepage sections.",
       "reqIds": [
         "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-contact-us-today-button-from-the-homepage-cta-section-finalctasection-including-any-unused-click-handler-logic-or-imports-that-are-only-needed-for-that-button",
+      "title": "Remove the \"Contact Us Today\" button from the homepage CTA section (FinalCtaSection), including any unused click-handler logic or imports that are only needed for that button.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-consultation-availability-text-block-from-the-homepage-cta-section-finalctasection",
+      "title": "Remove the consultation availability text block from the homepage CTA section (FinalCtaSection).",
+      "reqIds": [
+        "REQ-3"
       ],
       "version": 1
     }
@@ -20,12 +34,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Remove the selected h2 element entirely (delete it from the page)",
+      "summary": "Update homepage CTA section: set background to same white as other sections; remove 'Contact Us Today' button; remove 'available for consultation' text",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "Remove the selected About page Team section H2 element entirely",
+  "projectName": "Update homepage CTA section background and remove secondary elements",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

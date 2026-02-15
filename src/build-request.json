@@ -1,43 +1,83 @@
 {
   "kind": "build_request",
-  "title": "Remove the selected About page Team section H2 element entirely",
+  "title": "Update homepage CTA section background and remove secondary elements",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "On the About page, delete the selected H2 element entirely (not just its text) at XPath /html[1]/body[1]/div[1]/div[1]/main[1]/section[3]/div[1]/div[1]/div[1]/div[1]/h2[1] (the H2 within the Team section header block in frontend/src/pages/AboutPage.tsx).",
+      "text": "Update the homepage CTA section component (FinalCtaSection) so its background is white, matching the other homepage sections.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1",
-          "msg-5",
-          "msg-7"
+          "msg-4"
         ],
         "quotes": [
-          "Use the XPath expression to identify the element to edit.",
-          "Yes remove entirely",
-          "Build"
+          "Change the background color to white ( the same white background color as the other sections in the homepage)."
         ]
       },
       "acceptanceCriteria": [
-        "The Team section header block in frontend/src/pages/AboutPage.tsx no longer contains the empty <h2 ...>...</h2> element (it is removed from the JSX entirely).",
-        "No 'Meet Our Team' heading text (or any other text from that H2) is visible in that section.",
-        "All other content in the Team section (the paragraph text and team member rows) remains unchanged and still renders."
+        "In `frontend/src/components/home/FinalCtaSection.tsx`, the `<section id=\"contact\">` no longer uses the primary (navy) background styling and renders on a white background consistent with the rest of the homepage.",
+        "Text colors within the section remain readable on a white background (no low-contrast white-on-white)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Remove the \"Contact Us Today\" button from the homepage CTA section (FinalCtaSection), including any unused click-handler logic or imports that are only needed for that button.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Remove the contact us today button entirely"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The secondary CTA button labeled \"Contact Us Today\" is no longer rendered in `FinalCtaSection`.",
+        "Any now-unused code related only to the removed button (e.g., handler function and icon import) is removed or refactored so there are no lint/type errors.",
+        "The remaining primary button continues to work (scrolls to #contact when on the homepage and navigates to `/#contact` otherwise)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Remove the consultation availability text block from the homepage CTA section (FinalCtaSection).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Remove the text available for consultation...."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The footer text block containing \"Available for consultations across South Africa...\" is no longer rendered in `FinalCtaSection`.",
+        "The CTA section layout still has appropriate spacing after removing the text block (no awkward extra border/divider left behind)."
       ]
     }
   ],
   "constraints": [
-    "Apply changes ONLY to the element identified by XPath /html[1]/body[1]/div[1]/div[1]/main[1]/section[3]/div[1]/div[1]/div[1]/div[1]/h2[1].",
-    "Do not edit any frontend immutable paths listed in SYSTEM_CONTEXT.",
-    "Do not introduce backend changes; this is a frontend-only DOM removal."
+    "Do not edit files under `frontend/src/components/ui` (read-only).",
+    "Do not edit files listed as immutable in SYSTEM_CONTEXT (e.g., `frontend/src/main.tsx`, Internet Identity hooks).",
+    "Use English for any user-facing text."
   ],
   "nonGoals": [
-    "Removing or changing any other headings on the About page.",
-    "Removing placeholder images from the Team section (separate pending request).",
-    "Any design/theme overhaul unrelated to removing the selected H2 element."
+    "No changes to backend canisters or Motoko code.",
+    "No redesign of other homepage sections beyond making the CTA section match the existing white section background style.",
+    "No new CTA buttons or new marketing copy beyond removing the specified elements."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

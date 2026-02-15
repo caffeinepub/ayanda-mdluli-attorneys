@@ -1,24 +1,30 @@
 import { Award, Users, Scale, TrendingUp } from 'lucide-react';
+import NumberTicker from '@/components/common/NumberTicker';
 
 const trustIndicators = [
     {
         icon: Award,
-        value: '10+',
+        value: 10,
+        suffix: '+',
         label: 'years of experience'
     },
     {
         icon: Users,
-        value: '1000+',
-        label: 'Clients served'
+        value: 1000,
+        suffix: '+',
+        label: 'clients served'
     },
     {
         icon: Scale,
-        value: '100+',
+        value: 100,
+        suffix: '+',
         label: 'cases solved'
     },
     {
         icon: TrendingUp,
-        value: 'R1000000+',
+        value: 1000000,
+        prefix: 'R',
+        suffix: '+',
         label: 'settlements'
     }
 ];
@@ -47,7 +53,12 @@ export default function TrustIntroSection() {
                                 </div>
                                 <div>
                                     <div className="text-3xl md:text-4xl font-bold text-primary mb-1">
-                                        {indicator.value}
+                                        <NumberTicker
+                                            value={indicator.value}
+                                            prefix={indicator.prefix}
+                                            suffix={indicator.suffix}
+                                            duration={2000}
+                                        />
                                     </div>
                                     <div className="text-sm md:text-base text-muted-foreground font-medium">
                                         {indicator.label}
