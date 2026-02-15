@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-selected-navbar-logo-image-element-xpath-html-1-body-1-div-1-nav-1-div-1-div-1-button-1-img-1-implemented-in-frontend-src-components-home-homenavbar-tsx-so-its-img-src-points-to-assets-generated-tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg-png-exactly-as-provided-by-the-user-with-no-1-suffix",
-      "featureTitle": "Update the selected navbar logo image element (XPath `/html[1]/body[1]/div[1]/nav[1]/div[1]/div[1]/button[1]/img[1]`, implemented in `frontend/src/components/home/HomeNavbar.tsx`) so its `<img>` `src` points to `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` (exactly as provided by the user, with no `-1` suffix).",
+      "featureId": "feature-add-the-uploaded-image-law-firms1-jpeg-to-the-frontend-static-assets-and-render-it-as-the-full-cover-background-image-of-the-existing-homepage-hero-section-frontend-src-components-home-herosection-tsx",
+      "featureTitle": "Add the uploaded image `Law-firms1.jpeg` to the frontend static assets and render it as the full-cover background image of the existing homepage hero section (`frontend/src/components/home/HeroSection.tsx`).",
       "files": [
-        "frontend/src/components/home/HomeNavbar.tsx"
+        "frontend/src/components/home/HeroSection.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,6 +16,24 @@
       ],
       "testIds": [
         "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-dark-tint-overlay-on-top-of-the-hero-background-image-while-keeping-the-existing-hero-text-and-cta-readable-and-visually-unchanged-in-layout",
+      "featureTitle": "Apply a dark tint overlay on top of the hero background image while keeping the existing hero text and CTA readable and visually unchanged in layout.",
+      "files": [
+        "frontend/src/components/home/HeroSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
       ],
       "confidence": "high"
     }

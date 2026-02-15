@@ -1,47 +1,39 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-15T20:03:50.128Z",
-  "summary": "REQ-1 src update appears implemented in HomeNavbar.tsx, but the change set violates the constraint/AC that only the selected <img> element be changed because two additional files were modified. REQ-2 (adding the static logo file under frontend/public/assets/generated/) is not evidenced in the diff (no added file).",
+  "generatedAt": "2026-02-15T21:51:53.713Z",
+  "summary": "HeroSection.tsx was updated to use `/assets/Law-firms1.jpeg` as a full-cover background with a dark overlay layer that does not intercept pointer events. However, the actual image file was not added to a public static assets path in this diff (no added files), so the runtime asset requirement is not satisfied based on the provided changes.",
   "missing_requirements": [
     {
       "id": "REQ-1",
-      "requirement": "Only the selected navbar logo <img> element is changed (no unrelated images/components are modified).",
-      "reason": "The diff shows additional modified files beyond the selected <img> element in frontend/src/components/home/HomeNavbar.tsx, which contradicts the requirement/constraint to apply changes ONLY to the selected element.",
+      "requirement": "Add the uploaded image `Law-firms1.jpeg` to the frontend static assets under a public static path (e.g., `frontend/public/assets/...`) so it is served at runtime without involving the backend.",
+      "reason": "The diff summary shows \"Added: 0\" and no new asset file under `frontend/public/assets/...` (or similar). Although HeroSection references `/assets/Law-firms1.jpeg`, the image itself is not present in the diff.",
       "evidence": [
-        "frontend-file-summaries.txt",
-        "project_state.json"
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "requirement": "Ensure the static logo file Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png exists at frontend/public/assets/generated/ so it is served at /assets/generated/...",
-      "reason": "No files were added in the diff summary, and there is no evidence that the required .png file was added to frontend/public/assets/generated/.",
-      "evidence": [
-        "<file-diff>: Added: 0 (no added files)"
+        "File diff summary header: \"Added: 0\"",
+        "frontend/src/components/home/HeroSection.tsx (references `url(/assets/Law-firms1.jpeg)` but no asset file added)"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Modified frontend-file-summaries.txt (project documentation/summary content).",
-      "reason": "BuildRequest required changing only the selected navbar logo <img> element in HomeNavbar.tsx and did not request documentation updates.",
+      "description": "Updated internal tracking/state file `project_state.json` with new_feature_requests entries (AR-1/AR-2/AR-3).",
+      "reason": "The BuildRequest does not mention modifying any project state/tracking JSON; this appears to be an extra change unrelated to implementing the hero background/overlay.",
       "evidence": [
-        "frontend-file-summaries.txt"
+        "project_state.json"
       ]
     },
     {
-      "description": "Modified project_state.json (tracking new_feature_requests/status).",
-      "reason": "BuildRequest did not request any changes to project tracking/state files and explicitly constrained changes to the selected element only.",
+      "description": "Modified `frontend-file-summaries.txt` (documentation/summary content).",
+      "reason": "The BuildRequest does not request updating summary/documentation files; this appears unrelated to the functional requirements.",
       "evidence": [
-        "project_state.json"
+        "frontend-file-summaries.txt"
       ]
     }
   ],
   "confidence": 0.74,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/components/home/HomeNavbar.tsx",
+    "frontend/src/components/home/HeroSection.tsx",
     "project_state.json"
   ]
 }

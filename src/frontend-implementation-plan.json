@@ -1,35 +1,42 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Fix navbar logo src and ensure correct static asset is present",
+  "title": "Set homepage hero background image with dark tint overlay",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Update the HomeNavbar logo <img> src to the provided filename without the -1 suffix.",
+      "summary": "Add Law-firms1.jpeg as a public static asset and use it as the existing homepage HeroSection full-cover background.",
       "acceptanceCriteria": [
-        "`frontend/src/components/home/HomeNavbar.tsx` logo `<img>` uses `src=\"/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png\"`.",
-        "Only the selected navbar logo `<img>` element is changed (no unrelated images or components are modified)."
+        "`Law-firms1.jpeg` is present under a public static path (e.g., `frontend/public/assets/...`) so it is served at runtime without involving the backend.",
+        "The hero section uses the image via CSS `background-image` (or an equivalent approach) and the image covers the hero area using `background-size: cover` and `background-position: center`.",
+        "The previous solid background color does not visually block the image (i.e., the image is clearly visible behind the hero content)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/home/HomeNavbar.tsx",
+          "path": "frontend/public/assets/Law-firms1.jpeg",
+          "operation": "create",
+          "description": "Add the uploaded image file to the public static assets so it can be referenced at runtime by the HeroSection background without backend involvement."
+        },
+        {
+          "path": "frontend/src/components/home/HeroSection.tsx",
           "operation": "modify",
-          "description": "Change only the selected navbar logo `<img>` element's `src` from the `...pkg-1.png` file to `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png`, leaving all other code and images untouched."
+          "description": "Update the existing hero section root container to render `frontend/public/assets/Law-firms1.jpeg` as a CSS background image with full-cover behavior (centered and covering the hero area), ensuring the previous solid background does not obscure the image."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Add the provided logo file to the generated static assets directory so it is served at the required URL.",
+      "summary": "Add a dark tint overlay over the hero background image without changing layout and keeping CTA interaction intact.",
       "acceptanceCriteria": [
-        "The file `frontend/public/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` is present in the repo/build output.",
-        "Loading the app shows the navbar logo rendered (no broken image icon) and the network request for the image returns HTTP 200."
+        "A dark overlay layer (e.g., semi-transparent black) is rendered over the background image and under the hero content.",
+        "Hero heading, paragraph, and CTA button remain readable on top of the tinted background across common viewport sizes (mobile and desktop).",
+        "Overlay does not block interaction with the CTA button (pointer events are not intercepted)."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png",
-          "operation": "create",
-          "description": "Ensure the static logo file exists at this exact path (copy/import the user-provided `Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` into `frontend/public/assets/generated/`) so it is served at `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png`."
+          "path": "frontend/src/components/home/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Add an overlay layer positioned between the hero background image and the hero content (e.g., an absolutely positioned semi-transparent dark layer) while keeping the existing text/CTA layout unchanged; ensure the overlay does not intercept pointer events so the CTA remains clickable."
         }
       ]
     }

@@ -1,10 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Fix the navbar logo to use the provided logo filename and ensure the file is served from the expected public assets path.
+**Goal:** Set the uploaded `Law-firms1.jpeg` as the existing homepage hero section background and apply a dark tint overlay for readability.
 
 **Planned changes:**
-- Update the selected logo `<img>` in `frontend/src/components/home/HomeNavbar.tsx` to use `src="/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png"` (no `-1` suffix).
-- Ensure `Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` exists at `frontend/public/assets/generated/` so it is available at the matching `/assets/generated/...` URL.
+- Add `Law-firms1.jpeg` to a public static assets path (e.g., `frontend/public/assets/`) so it can be served at runtime.
+- Update `frontend/src/components/home/HeroSection.tsx` to render `Law-firms1.jpeg` as a full-cover hero background (centered, `background-size: cover`).
+- Add a semi-transparent dark overlay over the background image and beneath the hero content, ensuring the CTA remains clickable and text stays readable without layout changes.
 
-**User-visible outcome:** The navbar logo displays correctly (no broken image), and the logo image loads successfully from `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png`.
+**User-visible outcome:** The homepage hero displays the uploaded law-themed image as its background with a dark tint, while the existing hero text and CTA remain readable and usable on mobile and desktop.

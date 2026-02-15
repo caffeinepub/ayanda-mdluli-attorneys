@@ -64,14 +64,17 @@ export default function HomeNavbar() {
           {/* Logo/Brand */}
           <button
             onClick={handleHomeClick}
-            className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded transition-opacity hover:opacity-80"
-            aria-label="Legal Services SA - Go to homepage"
+            className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded transition-opacity hover:opacity-80 mr-6 md:mr-8"
+            aria-label="Ayanda Mdluli Attorneys - Go to homepage"
           >
-            <img
-              src="/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png"
-              alt="Legal Services SA Logo"
-              className="h-12 md:h-16 w-auto object-contain"
-            />
+            {/* Logo container with fixed height per breakpoint to prevent layout shift */}
+            <div className="h-[45px] sm:h-[55px] lg:h-[70px] flex items-center">
+              <img
+                src="/assets/images/AyandaMdluliAttorneys-1.png"
+                alt="Ayanda Mdluli Attorneys Official Logo"
+                className="w-auto h-auto max-h-full object-contain"
+              />
+            </div>
           </button>
 
           {/* Desktop Navigation */}

@@ -3,32 +3,35 @@
   "projectStateVersion": 3,
   "summary": "New project",
   "architectural_notes": [],
-  "known_issues": [
-    "Broken image due to incorrect/invalid src path: referenced filename in /assets/generated did not exist in /public/assets/generated; should use provided logo file Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png (without trailing -1 in name).",
-    "Draft editor sandbox error: disallowed origin https://global-beige-1pm-draft.caffeine.xyz causing image load failures in draft environment (CORS/sandbox restriction)."
-  ],
-  "isFixRequest": true,
+  "known_issues": [],
+  "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-update-the-selected-navbar-logo-image-element-xpath-html-1-body-1-div-1-nav-1-div-1-div-1-button-1-img-1-implemented-in-frontend-src-components-home-homenavbar-tsx-so-its-img-src-points-to-assets-generated-tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg-png-exactly-as-provided-by-the-user-with-no-1-suffix",
-      "title": "Update the selected navbar logo image element (XPath `/html[1]/body[1]/div[1]/nav[1]/div[1]/div[1]/button[1]/img[1]`, implemented in `frontend/src/components/home/HomeNavbar.tsx`) so its `<img>` `src` points to `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` (exactly as provided by the user, with no `-1` suffix).",
+      "id": "feature-add-the-uploaded-image-law-firms1-jpeg-to-the-frontend-static-assets-and-render-it-as-the-full-cover-background-image-of-the-existing-homepage-hero-section-frontend-src-components-home-herosection-tsx",
+      "title": "Add the uploaded image `Law-firms1.jpeg` to the frontend static assets and render it as the full-cover background image of the existing homepage hero section (`frontend/src/components/home/HeroSection.tsx`).",
       "reqIds": [
         "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-dark-tint-overlay-on-top-of-the-hero-background-image-while-keeping-the-existing-hero-text-and-cta-readable-and-visually-unchanged-in-layout",
+      "title": "Apply a dark tint overlay on top of the hero background image while keeping the existing hero text and CTA readable and visually unchanged in layout.",
+      "reqIds": [
+        "REQ-2"
       ],
       "version": 1
     }
   ],
   "new_feature_requests": [
     {
-      "id": "AR-2",
-      "summary": "Ensure the static logo file `Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` exists in the frontend static assets directory at `frontend/public/assets/generated/` so it is served at `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png`.",
-      "reqIds": [
-        "REQ-2"
-      ],
+      "id": "AR-1",
+      "summary": "Set the existing homepage hero section background to the provided image with full-cover styling and a dark tint overlay",
+      "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "Fix navbar logo image src to point to provided logo filename",
+  "projectName": "Set uploaded image as homepage hero background with dark tint",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

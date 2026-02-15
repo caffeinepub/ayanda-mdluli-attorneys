@@ -1,53 +1,68 @@
 {
   "kind": "build_request",
-  "title": "Fix navbar logo image src to point to provided logo filename",
+  "title": "Set uploaded image as homepage hero background with dark tint",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the selected navbar logo image element (XPath `/html[1]/body[1]/div[1]/nav[1]/div[1]/div[1]/button[1]/img[1]`, implemented in `frontend/src/components/home/HomeNavbar.tsx`) so its `<img>` `src` points to `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` (exactly as provided by the user, with no `-1` suffix).",
+      "text": "Add the uploaded image `Law-firms1.jpeg` to the frontend static assets and render it as the full-cover background image of the existing homepage hero section (`frontend/src/components/home/HeroSection.tsx`).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "recent-16"
+          "recent-messages-user-1",
+          "recent-messages-user-2"
         ],
         "quotes": [
-          "It's the logo this is its filename  Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png"
+          "Put this image as the background image of the hero section",
+          "Apply the change"
         ]
       },
       "acceptanceCriteria": [
-        "`frontend/src/components/home/HomeNavbar.tsx` logo `<img>` uses `src=\"/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png\"`.",
-        "Only the selected navbar logo `<img>` element is changed (no unrelated images or components are modified)."
+        "`Law-firms1.jpeg` is present under a public static path (e.g., `frontend/public/assets/...`) so it is served at runtime without involving the backend.",
+        "The hero section uses the image via CSS `background-image` (or an equivalent approach) and the image covers the hero area using `background-size: cover` and `background-position: center`.",
+        "The previous solid background color does not visually block the image (i.e., the image is clearly visible behind the hero content)."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Ensure the static logo file `Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` exists in the frontend static assets directory at `frontend/public/assets/generated/` so it is served at `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png`.",
+      "text": "Apply a dark tint overlay on top of the hero background image while keeping the existing hero text and CTA readable and visually unchanged in layout.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "recent-16"
+          "recent-messages-user-3"
         ],
         "quotes": [
-          "Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png"
+          "Yes dark tint."
         ]
       },
       "acceptanceCriteria": [
-        "The file `frontend/public/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` is present in the repo/build output.",
-        "Loading the app shows the navbar logo rendered (no broken image icon) and the network request for the image returns HTTP 200."
+        "A dark overlay layer (e.g., semi-transparent black) is rendered over the background image and under the hero content.",
+        "Hero heading, paragraph, and CTA button remain readable on top of the tinted background across common viewport sizes (mobile and desktop).",
+        "Overlay does not block interaction with the CTA button (pointer events are not intercepted)."
       ]
     }
   ],
   "constraints": [
-    "Apply changes ONLY to the selected element (XPath `/html[1]/body[1]/div[1]/nav[1]/div[1]/div[1]/button[1]/img[1]`) in `frontend/src/components/home/HomeNavbar.tsx`.",
-    "Do not edit any files under `frontend/src/components/ui` or other paths listed as immutable in SYSTEM_CONTEXT."
+    "Do not modify any files under `frontend/src/components/ui` (read-only component sources).",
+    "Backend remains single-actor; no backend changes are required for this static hero background update."
   ],
   "nonGoals": [
-    "Redesigning the navbar layout, typography, colors, or adding new navigation items.",
-    "Changing the logo `alt` text or adding new branding assets beyond the provided logo file."
+    "Creating a new hero section from scratch (use the existing homepage hero section).",
+    "Changing hero copy, CTA behavior, or navigation logic.",
+    "Adding backend storage or upload handling for hero images."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }
