@@ -18,6 +18,7 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const autoScrollIntervalRef = useRef<number | null>(null);
 
   const updateScrollButtons = () => {
     if (!scrollContainerRef.current) return;
@@ -26,12 +27,6 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
     setCanScrollLeft(scrollLeft > 0);
     setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
   };
-
-  useEffect(() => {
-    updateScrollButtons();
-    window.addEventListener('resize', updateScrollButtons);
-    return () => window.removeEventListener('resize', updateScrollButtons);
-  }, []);
 
   const scroll = (direction: 'left' | 'right') => {
     if (!scrollContainerRef.current) return;
@@ -46,6 +41,52 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
       left: targetScroll,
       behavior: 'smooth'
     });
+  };
+
+  const autoScroll = () => {
+    if (!scrollContainerRef.current) return;
+    
+    const container = scrollContainerRef.current;
+    const { scrollLeft, scrollWidth, clientWidth } = container;
+    
+    // Check if we're at the end
+    if (scrollLeft >= scrollWidth - clientWidth - 10) {
+      // Reset to beginning
+      container.scrollTo({
+        left: 0,
+        behavior: 'smooth'
+      });
+    } else {
+      // Scroll to next
+      scroll('right');
+    }
+  };
+
+  useEffect(() => {
+    updateScrollButtons();
+    window.addEventListener('resize', updateScrollButtons);
+    
+    // Start auto-scroll interval (every 5 seconds)
+    autoScrollIntervalRef.current = window.setInterval(autoScroll, 5000);
+    
+    return () => {
+      window.removeEventListener('resize', updateScrollButtons);
+      if (autoScrollIntervalRef.current) {
+        clearInterval(autoScrollIntervalRef.current);
+      }
+    };
+  }, []);
+
+  const handleManualScroll = (direction: 'left' | 'right') => {
+    // Clear and restart auto-scroll timer when user manually scrolls
+    if (autoScrollIntervalRef.current) {
+      clearInterval(autoScrollIntervalRef.current);
+    }
+    
+    scroll(direction);
+    
+    // Restart auto-scroll after manual interaction
+    autoScrollIntervalRef.current = window.setInterval(autoScroll, 5000);
   };
 
   return (
@@ -101,7 +142,7 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
         <Button
           variant="outline"
           size="icon"
-          onClick={() => scroll('left')}
+          onClick={() => handleManualScroll('left')}
           disabled={!canScrollLeft}
           className="rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           aria-label="Previous testimonial"
@@ -111,7 +152,7 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
         <Button
           variant="outline"
           size="icon"
-          onClick={() => scroll('right')}
+          onClick={() => handleManualScroll('right')}
           disabled={!canScrollRight}
           className="rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           aria-label="Next testimonial"

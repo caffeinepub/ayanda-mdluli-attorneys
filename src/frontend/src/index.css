@@ -89,6 +89,20 @@
         scroll-behavior: smooth;
     }
     
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+    
     body {
         @apply bg-background text-foreground font-body antialiased;
         font-feature-settings: 'kern' 1, 'liga' 1;
@@ -136,5 +150,105 @@
 @layer utilities {
     .text-balance {
         text-wrap: balance;
+    }
+    
+    /* Page Transition Animations */
+    .page-fade-in {
+        animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    .page-fade-slide-in {
+        animation: fadeSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes fadeSlideIn {
+        from {
+            opacity: 0;
+            transform: translateY(0.75rem);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Scroll Reveal Animations */
+    .reveal-subtle-in {
+        animation: revealSubtle 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    .reveal-noticeable-in {
+        animation: revealNoticeable 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    @keyframes revealSubtle {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes revealNoticeable {
+        from {
+            opacity: 0;
+            transform: translateY(1.5rem);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Hover Micro-interactions */
+    .hover-lift {
+        @apply transition-transform duration-300 ease-out;
+    }
+    
+    .hover-lift:hover {
+        @apply -translate-y-1;
+    }
+    
+    .hover-underline {
+        @apply relative;
+    }
+    
+    .hover-underline::after {
+        content: '';
+        @apply absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 ease-out;
+    }
+    
+    .hover-underline:hover::after {
+        @apply w-full;
+    }
+    
+    /* Reduced motion overrides */
+    @media (prefers-reduced-motion: reduce) {
+        .page-fade-in,
+        .page-fade-slide-in,
+        .reveal-subtle-in,
+        .reveal-noticeable-in {
+            animation: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        
+        .hover-lift:hover {
+            transform: none !important;
+        }
+        
+        .hover-underline::after {
+            transition: none !important;
+        }
     }
 }

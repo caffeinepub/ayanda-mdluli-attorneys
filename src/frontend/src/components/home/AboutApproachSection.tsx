@@ -44,15 +44,11 @@ export default function AboutApproachSection() {
                     
                     <div className="prose prose-lg max-w-none space-y-6 text-foreground/90">
                         <p className="text-lg leading-relaxed">
-                            Ayanda Mdluli Attorneys is a full-service law firm dedicated to providing exceptional legal representation across South Africa. With over a decade of experience, we have built a reputation for delivering results-driven solutions while maintaining the highest standards of professional integrity and client care.
+                            Ayanda Mdluli Attorneys is a full-service law firm delivering strategic, results-driven legal representation across South Africa. With over a decade of experience, we provide tailored legal solutions grounded in integrity, professionalism, and a commitment to acting in the best interest of our clients.
                         </p>
                         
                         <p className="text-lg leading-relaxed">
-                            Our firm specializes in labour law, commercial litigation, family law, criminal defense, and civil matters. We understand that legal challenges can be overwhelming, which is why we prioritize clear communication, strategic thinking, and personalized attention for every client we serve.
-                        </p>
-                        
-                        <p className="text-lg leading-relaxed">
-                            Founded by Ayanda Mdluli, our practice combines deep legal expertise with a genuine commitment to justice and client advocacy. We believe that quality legal representation should be accessible, transparent, and focused on achieving the best possible outcomes for those we represent.
+                            Our firm handles labour, commercial, family, criminal, and civil matters with precision and care. We combine legal expertise with clear communication and personalized attention to ensure every client receives focused, effective representation.
                         </p>
                     </div>
 

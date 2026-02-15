@@ -1,75 +1,34 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Website UI/UX updates across hero, Our Approach, and How It Works sections (button removal, card icon/border styling, click animation, and number layout adjustments).",
+  "summary": "New project",
   "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
+  "known_issues": [
+    "Broken image due to incorrect/invalid src path: referenced filename in /assets/generated did not exist in /public/assets/generated; should use provided logo file Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png (without trailing -1 in name).",
+    "Draft editor sandbox error: disallowed origin https://global-beige-1pm-draft.caffeine.xyz causing image load failures in draft environment (CORS/sandbox restriction)."
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
-      "id": "feature-remove-the-contact-us-today-button-from-the-homepage-hero-section-so-only-the-schedule-a-consultation-cta-remains",
-      "title": "Remove the \"Contact Us Today\" button from the homepage Hero section so only the \"Schedule a Consultation\" CTA remains.",
+      "id": "feature-update-the-selected-navbar-logo-image-element-xpath-html-1-body-1-div-1-nav-1-div-1-div-1-button-1-img-1-implemented-in-frontend-src-components-home-homenavbar-tsx-so-its-img-src-points-to-assets-generated-tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg-png-exactly-as-provided-by-the-user-with-no-1-suffix",
+      "title": "Update the selected navbar logo image element (XPath `/html[1]/body[1]/div[1]/nav[1]/div[1]/div[1]/button[1]/img[1]`, implemented in `frontend/src/components/home/HomeNavbar.tsx`) so its `<img>` `src` points to `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` (exactly as provided by the user, with no `-1` suffix).",
       "reqIds": [
-        "REQ-5"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-the-homepage-our-approach-cards-to-1-replace-the-numeric-labels-with-icons-in-a-style-consistent-with-the-rest-of-the-website-2-use-a-white-card-background-3-apply-a-permanent-gold-border-using-the-site-s-existing-gold-theme-color-and-4-add-an-on-click-subtle-upward-lift-interaction-that-does-not-change-the-border-color-on-click",
-      "title": "Update the homepage \"Our Approach\" cards to (1) replace the numeric labels with icons in a style consistent with the rest of the website, (2) use a white card background, (3) apply a permanent gold border using the site’s existing gold theme color, and (4) add an on-click subtle upward-lift interaction that does not change the border color on click.",
-      "reqIds": [
-        "REQ-6"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-the-homepage-how-it-works-section-so-each-step-s-number-appears-outside-of-separate-from-the-text-box-card-with-the-number-shown-first-and-then-the-bordered-text-box-apply-a-gold-border-to-the-step-text-boxes-using-the-site-s-existing-gold-theme-color",
-      "title": "Update the homepage \"How It Works\" section so each step’s number appears outside of (separate from) the text box/card, with the number shown first and then the bordered text box. Apply a gold border to the step text boxes using the site’s existing gold theme color.",
-      "reqIds": [
-        "REQ-7"
+        "REQ-1"
       ],
       "version": 1
     }
   ],
   "new_feature_requests": [
     {
-      "id": "AR-1",
-      "summary": "Hero section: remove the “Contact us today” button entirely.",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
       "id": "AR-2",
-      "summary": "Our Approach cards: replace the numeric labels with icons in a style consistent with the rest of the website.",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-3",
-      "summary": "Our Approach cards: set card background to white and apply a permanent gold border using the site’s existing gold theme color (no border change on click).",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-4",
-      "summary": "Our Approach cards: add an on-click subtle upward-lift interaction effect.",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-5",
-      "summary": "How It Works section: move numbers outside of the text boxes (numbers followed by bordered text boxes).",
-      "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-6",
-      "summary": "How It Works boxes: apply a gold border using the site’s existing gold theme color.",
-      "reqIds": [],
+      "summary": "Ensure the static logo file `Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` exists in the frontend static assets directory at `frontend/public/assets/generated/` so it is served at `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png`.",
+      "reqIds": [
+        "REQ-2"
+      ],
       "status": "pending"
     }
   ],
-  "projectName": "Homepage UI updates: hero CTA removal, Our Approach card redesign, How It Works number layout",
+  "projectName": "Fix navbar logo image src to point to provided logo filename",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

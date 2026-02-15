@@ -1,18 +1,9 @@
 import { Phone } from 'lucide-react';
+import { navigate } from '../../router/router';
 
 export default function FinalCtaSection() {
   const handlePrimaryClick = () => {
-    const currentPath = window.location.pathname;
-    if (currentPath === '/') {
-      // Already on homepage, scroll to contact section (this section)
-      const element = document.getElementById('contact');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    } else {
-      // Navigate to homepage contact section
-      window.location.href = '/#contact';
-    }
+    navigate('/contact');
   };
 
   return (
@@ -23,7 +14,7 @@ export default function FinalCtaSection() {
       
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-foreground mb-6">
+          <h2 className="text-primary mb-6">
             Ready to Resolve Your Legal Matter?
           </h2>
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -33,7 +24,7 @@ export default function FinalCtaSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={handlePrimaryClick}
-              className="group bg-accent hover:bg-accent-dark text-accent-foreground font-semibold px-10 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-2"
+              className="group bg-accent hover:bg-accent-dark text-accent-foreground font-semibold px-10 py-4 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl hover-lift flex items-center gap-2"
             >
               <Phone className="w-5 h-5" aria-hidden="true" />
               Schedule Free Consultation

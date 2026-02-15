@@ -72,7 +72,7 @@ export default function Footer() {
                   href="https://facebook.com/placeholder" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all hover:scale-110"
+                  className="w-9 h-9 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all hover:scale-110 hover-lift"
                   aria-label="Follow us on Facebook"
                 >
                   <SiFacebook className="w-4 h-4" aria-hidden="true" />
@@ -81,7 +81,7 @@ export default function Footer() {
                   href="https://instagram.com/placeholder" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all hover:scale-110"
+                  className="w-9 h-9 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all hover:scale-110 hover-lift"
                   aria-label="Follow us on Instagram"
                 >
                   <SiInstagram className="w-4 h-4" aria-hidden="true" />
@@ -90,7 +90,7 @@ export default function Footer() {
                   href="https://indeed.com/placeholder" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all hover:scale-110"
+                  className="w-9 h-9 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-all hover:scale-110 hover-lift"
                   aria-label="Follow us on Indeed"
                 >
                   <span className="text-xs font-bold" aria-hidden="true">in</span>
@@ -111,7 +111,7 @@ export default function Footer() {
                     <a 
                       href={link.href}
                       onClick={(e) => handleQuickLinkClick(e, link.href)}
-                      className="text-primary-foreground/90 hover:text-accent transition-colors inline-block hover:translate-x-1 duration-200"
+                      className="text-primary-foreground/90 hover:text-accent transition-all inline-block hover:translate-x-1 duration-200 hover-underline"
                     >
                       {link.label}
                     </a>
@@ -126,35 +126,30 @@ export default function Footer() {
             <h3 className="text-xl font-heading font-semibold mb-4 text-accent">
               Office Hours
             </h3>
-            <div className="space-y-2 text-primary-foreground/90 text-sm">
-              <p><strong className="text-primary-foreground">Monday - Friday:</strong> 8:00 AM - 6:00 PM</p>
-              <p><strong className="text-primary-foreground">Saturday:</strong> 9:00 AM - 1:00 PM</p>
-              <p><strong className="text-primary-foreground">Sunday:</strong> Closed</p>
+            <div className="space-y-2 text-primary-foreground/90">
+              <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+              <p>Saturday: 9:00 AM - 1:00 PM</p>
+              <p>Sunday: Closed</p>
             </div>
-            <p className="mt-4 text-primary-foreground/80 text-sm leading-relaxed">
-              Emergency consultations available by appointment. Contact us for urgent legal matters.
-            </p>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-primary-foreground/20">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-primary-foreground/80 text-sm text-center md:text-left">
-              © 2026 Ayanda Mdluli Attorneys. All rights reserved
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/80">
+            <p>
+              © {new Date().getFullYear()} Ayanda Mdluli Attorneys. All rights reserved.
             </p>
-            
-            <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
-              <a 
-                href="#privacy" 
-                className="text-primary-foreground/80 hover:text-accent transition-colors"
+            <div className="flex gap-4">
+              <a
+                href="#"
+                className="text-primary-foreground/80 hover:text-accent transition-colors hover-underline"
               >
                 Privacy Policy
               </a>
-              <span className="text-primary-foreground/40">•</span>
-              <a 
-                href="#terms" 
-                className="text-primary-foreground/80 hover:text-accent transition-colors"
+              <a
+                href="#"
+                className="text-primary-foreground/80 hover:text-accent transition-colors hover-underline"
               >
                 Terms of Service
               </a>

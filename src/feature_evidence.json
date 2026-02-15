@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-remove-the-contact-us-today-button-from-the-homepage-hero-section-so-only-the-schedule-a-consultation-cta-remains",
-      "featureTitle": "Remove the \"Contact Us Today\" button from the homepage Hero section so only the \"Schedule a Consultation\" CTA remains.",
+      "featureId": "feature-update-the-selected-navbar-logo-image-element-xpath-html-1-body-1-div-1-nav-1-div-1-div-1-button-1-img-1-implemented-in-frontend-src-components-home-homenavbar-tsx-so-its-img-src-points-to-assets-generated-tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg-png-exactly-as-provided-by-the-user-with-no-1-suffix",
+      "featureTitle": "Update the selected navbar logo image element (XPath `/html[1]/body[1]/div[1]/nav[1]/div[1]/div[1]/button[1]/img[1]`, implemented in `frontend/src/components/home/HomeNavbar.tsx`) so its `<img>` `src` points to `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` (exactly as provided by the user, with no `-1` suffix).",
       "files": [
-        "frontend/src/components/home/HeroSection.tsx"
+        "frontend/src/components/home/HomeNavbar.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,43 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-5"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-the-homepage-our-approach-cards-to-1-replace-the-numeric-labels-with-icons-in-a-style-consistent-with-the-rest-of-the-website-2-use-a-white-card-background-3-apply-a-permanent-gold-border-using-the-site-s-existing-gold-theme-color-and-4-add-an-on-click-subtle-upward-lift-interaction-that-does-not-change-the-border-color-on-click",
-      "featureTitle": "Update the homepage \"Our Approach\" cards to (1) replace the numeric labels with icons in a style consistent with the rest of the website, (2) use a white card background, (3) apply a permanent gold border using the site’s existing gold theme color, and (4) add an on-click subtle upward-lift interaction that does not change the border color on click.",
-      "files": [
-        "frontend/src/components/home/AboutApproachSection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-6"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-the-homepage-how-it-works-section-so-each-step-s-number-appears-outside-of-separate-from-the-text-box-card-with-the-number-shown-first-and-then-the-bordered-text-box-apply-a-gold-border-to-the-step-text-boxes-using-the-site-s-existing-gold-theme-color",
-      "featureTitle": "Update the homepage \"How It Works\" section so each step’s number appears outside of (separate from) the text box/card, with the number shown first and then the bordered text box. Apply a gold border to the step text boxes using the site’s existing gold theme color.",
-      "files": [
-        "frontend/src/components/home/HowItWorksSection.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-7"
+        "REQ-1"
       ],
       "confidence": "high"
     }

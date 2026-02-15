@@ -1,56 +1,35 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Homepage UI updates: hero CTA removal, Our Approach card redesign, How It Works number layout",
+  "title": "Fix navbar logo src and ensure correct static asset is present",
   "requirements": [
     {
-      "id": "REQ-5",
-      "summary": "Remove the secondary \"Contact Us Today\" CTA from the homepage hero so only \"Schedule a Consultation\" remains, cleaning up related logic.",
+      "id": "REQ-1",
+      "summary": "Update the HomeNavbar logo <img> src to the provided filename without the -1 suffix.",
       "acceptanceCriteria": [
-        "In HeroSection, the button with label \"Contact Us Today\" is no longer rendered.",
-        "Hero layout remains visually balanced on mobile and desktop with a single CTA button.",
-        "No unused handler/function remains for the removed button (e.g., contact button click handler is removed if no longer needed)."
+        "`frontend/src/components/home/HomeNavbar.tsx` logo `<img>` uses `src=\"/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png\"`.",
+        "Only the selected navbar logo `<img>` element is changed (no unrelated images or components are modified)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/home/HeroSection.tsx",
+          "path": "frontend/src/components/home/HomeNavbar.tsx",
           "operation": "modify",
-          "description": "Remove the \"Contact Us Today\" button from the hero CTA row and delete the now-unused handler/functionality tied to that CTA; adjust spacing/alignment as needed so the single remaining CTA still looks balanced across breakpoints."
+          "description": "Change only the selected navbar logo `<img>` element's `src` from the `...pkg-1.png` file to `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png`, leaving all other code and images untouched."
         }
       ]
     },
     {
-      "id": "REQ-6",
-      "summary": "Redesign \"Our Approach\" cards: replace numbers with icons, enforce white card background, apply permanent gold theme border, and add subtle press (active) upward-lift without border color changes.",
+      "id": "REQ-2",
+      "summary": "Add the provided logo file to the generated static assets directory so it is served at the required URL.",
       "acceptanceCriteria": [
-        "Each Our Approach card no longer displays the numeric text (1–4) and instead displays an icon per card.",
-        "Our Approach cards render with a white background in light mode (and remain legible in dark mode).",
-        "Our Approach cards have a gold border derived from the existing accent/gold theme token (not a newly introduced hard-coded random gold).",
-        "The gold border remains gold in default, hover, focus, and active/clicked states (no border color change on click).",
-        "Clicking/tapping a card triggers a subtle upward-lift effect (e.g., small translateY negative) and returns to normal when released; effect works on desktop and mobile."
+        "The file `frontend/public/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` is present in the repo/build output.",
+        "Loading the app shows the navbar logo rendered (no broken image icon) and the network request for the image returns HTTP 200."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/home/AboutApproachSection.tsx",
-          "operation": "modify",
-          "description": "Update the four Our Approach cards to swap the numeric labels for icons (use existing site-consistent icon style, e.g., lucide-react), switch card surface to a white-in-light-mode token (e.g., card background) with dark-mode legibility, set a permanent border using the existing gold accent token (e.g., border-accent) and remove any hover/active border color changes, and add a subtle active/click lift interaction via transform/transition (e.g., active:-translate-y-1) that resets on release."
-        }
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "summary": "Adjust \"How It Works\" steps so numbers are outside the bordered card and apply a gold theme border to each step text box.",
-      "acceptanceCriteria": [
-        "In HowItWorksSection, the step number is visually outside/separate from the step card/box (not inside the card content container).",
-        "The layout preserves the existing step titles and order (1 through 5).",
-        "Each step’s text box/card has a gold border using the site’s existing accent/gold theme token.",
-        "The section remains responsive and readable on mobile and desktop without overlapping number + card content."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/home/HowItWorksSection.tsx",
-          "operation": "modify",
-          "description": "Restructure each step’s markup so the number is rendered as its own element outside (preceding) the bordered Card/text container, with layout that keeps number first then the box; apply a gold border using the existing accent token on the Card (e.g., border-accent) and ensure responsive spacing/alignment prevents overlap on mobile and desktop."
+          "path": "frontend/public/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png",
+          "operation": "create",
+          "description": "Ensure the static logo file exists at this exact path (copy/import the user-provided `Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` into `frontend/public/assets/generated/`) so it is served at `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png`."
         }
       ]
     }

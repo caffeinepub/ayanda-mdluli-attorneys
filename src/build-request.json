@@ -1,95 +1,53 @@
 {
   "kind": "build_request",
-  "title": "Homepage UI updates: hero CTA removal, Our Approach card redesign, How It Works number layout",
+  "title": "Fix navbar logo image src to point to provided logo filename",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-5",
-      "text": "Remove the \"Contact Us Today\" button from the homepage Hero section so only the \"Schedule a Consultation\" CTA remains.",
+      "id": "REQ-1",
+      "text": "Update the selected navbar logo image element (XPath `/html[1]/body[1]/div[1]/nav[1]/div[1]/div[1]/button[1]/img[1]`, implemented in `frontend/src/components/home/HomeNavbar.tsx`) so its `<img>` `src` points to `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` (exactly as provided by the user, with no `-1` suffix).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "recent-16"
         ],
         "quotes": [
-          "On the hero section, I want you to remove the contact us today button entirely."
+          "It's the logo this is its filename  Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png"
         ]
       },
       "acceptanceCriteria": [
-        "In HeroSection, the button with label \"Contact Us Today\" is no longer rendered.",
-        "Hero layout remains visually balanced on mobile and desktop with a single CTA button.",
-        "No unused handler/function remains for the removed button (e.g., contact button click handler is removed if no longer needed)."
+        "`frontend/src/components/home/HomeNavbar.tsx` logo `<img>` uses `src=\"/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png\"`.",
+        "Only the selected navbar logo `<img>` element is changed (no unrelated images or components are modified)."
       ]
     },
     {
-      "id": "REQ-6",
-      "text": "Update the homepage \"Our Approach\" cards to (1) replace the numeric labels with icons in a style consistent with the rest of the website, (2) use a white card background, (3) apply a permanent gold border using the site’s existing gold theme color, and (4) add an on-click subtle upward-lift interaction that does not change the border color on click.",
+      "id": "REQ-2",
+      "text": "Ensure the static logo file `Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` exists in the frontend static assets directory at `frontend/public/assets/generated/` so it is served at `/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png`.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4",
-          "msg-6"
+          "recent-16"
         ],
         "quotes": [
-          "On the our approach section, I want you to replace the numbers on the cards with icons.",
-          "I want the background color of the cards in the approach section to be white. They can have a gold borderline color instead, but not on click. They must have a gold borderline color.",
-          "And then, I want the cards to also have an on click effect. Maybe like on click they must sort of like jump out a bit, but not necessarily pop out.",
-          "Consistent style with the rest of the website",
-          "Use the gold color theme of the website",
-          "Subtle upward lift"
+          "Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png"
         ]
       },
       "acceptanceCriteria": [
-        "Each Our Approach card no longer displays the numeric text (1–4) and instead displays an icon per card.",
-        "Our Approach cards render with a white background in light mode (and remain legible in dark mode).",
-        "Our Approach cards have a gold border derived from the existing accent/gold theme token (not a newly introduced hard-coded random gold).",
-        "The gold border remains gold in default, hover, focus, and active/clicked states (no border color change on click).",
-        "Clicking/tapping a card triggers a subtle upward-lift effect (e.g., small translateY negative) and returns to normal when released; effect works on desktop and mobile."
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Update the homepage \"How It Works\" section so each step’s number appears outside of (separate from) the text box/card, with the number shown first and then the bordered text box. Apply a gold border to the step text boxes using the site’s existing gold theme color.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-4"
-        ],
-        "quotes": [
-          "The numbers must be outside of the boxes, so it must be the numbers and then it must be the boxes with the text. The numbers and then the boxes.",
-          "The boxes can also have a gold borderline color."
-        ]
-      },
-      "acceptanceCriteria": [
-        "In HowItWorksSection, the step number is visually outside/separate from the step card/box (not inside the card content container).",
-        "The layout preserves the existing step titles and order (1 through 5).",
-        "Each step’s text box/card has a gold border using the site’s existing accent/gold theme token.",
-        "The section remains responsive and readable on mobile and desktop without overlapping number + card content."
+        "The file `frontend/public/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png` is present in the repo/build output.",
+        "Loading the app shows the navbar logo rendered (no broken image icon) and the network request for the image returns HTTP 200."
       ]
     }
   ],
   "constraints": [
-    "Frontend must not modify any files under frontend/src/components/ui or other paths listed as immutable in SYSTEM_CONTEXT.",
-    "Use English for any user-facing text.",
-    "Backend is a single Motoko actor; do not introduce additional backend services."
+    "Apply changes ONLY to the selected element (XPath `/html[1]/body[1]/div[1]/nav[1]/div[1]/div[1]/button[1]/img[1]`) in `frontend/src/components/home/HomeNavbar.tsx`.",
+    "Do not edit any files under `frontend/src/components/ui` or other paths listed as immutable in SYSTEM_CONTEXT."
   ],
   "nonGoals": [
-    "No new backend features or persistence changes.",
-    "No changes to testimonials carousel, FAQ underline, or focus outline bug unless required by these UI updates.",
-    "No redesign of copy/content beyond the specified button removal and numeric-to-icon swap."
+    "Redesigning the navbar layout, typography, colors, or adding new navigation items.",
+    "Changing the logo `alt` text or adding new branding assets beyond the provided logo file."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

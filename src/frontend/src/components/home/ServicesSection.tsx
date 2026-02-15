@@ -33,16 +33,7 @@ export default function ServicesSection() {
     };
 
     const handleContactUs = () => {
-        const currentPath = window.location.pathname;
-        if (currentPath === '/') {
-            const element = document.getElementById('contact');
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-            window.history.pushState(null, '', '/#contact');
-        } else {
-            navigate('/#contact');
-        }
+        navigate('/contact');
     };
 
     return (
@@ -67,7 +58,7 @@ export default function ServicesSection() {
                             return (
                                 <div
                                     key={service.name}
-                                    className="bg-background rounded-lg p-6 border border-border hover:border-accent/30 transition-all duration-300 hover:shadow-md group"
+                                    className="bg-background rounded-lg p-6 border border-border hover:border-accent/30 transition-all duration-300 hover:shadow-md hover-lift group"
                                 >
                                     <div className="flex items-start gap-4">
                                         <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
@@ -88,13 +79,13 @@ export default function ServicesSection() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
                         <button
                             onClick={handleExploreMore}
-                            className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-accent-foreground font-medium px-8 py-4 rounded-md transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+                            className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-accent-foreground font-medium px-8 py-4 rounded-md transition-all duration-300 shadow-sm hover:shadow-md hover-lift focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
                         >
                             explore more services
                         </button>
                         <button
                             onClick={handleContactUs}
-                            className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-primary-foreground font-medium px-8 py-4 rounded-md transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                            className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-primary-foreground font-medium px-8 py-4 rounded-md transition-all duration-300 shadow-sm hover:shadow-md hover-lift focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                         >
                             Contact us
                         </button>

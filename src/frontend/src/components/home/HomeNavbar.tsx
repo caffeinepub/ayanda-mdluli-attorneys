@@ -48,7 +48,7 @@ export default function HomeNavbar() {
 
   const handleContactClick = () => {
     setIsMenuOpen(false);
-    handleSectionNavigation('contact');
+    navigate('/contact');
   };
 
   return (
@@ -64,10 +64,14 @@ export default function HomeNavbar() {
           {/* Logo/Brand */}
           <button
             onClick={handleHomeClick}
-            className="font-heading text-xl md:text-2xl font-bold text-primary hover:text-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
-            aria-label="Go to homepage"
+            className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded transition-opacity hover:opacity-80"
+            aria-label="Legal Services SA - Go to homepage"
           >
-            Legal Services SA
+            <img
+              src="/assets/generated/Tshabalala-1080-x-1080-px-1-e1745416117212-r66kph3gxuhfsp0hg1525ae50su5inwh0amb0wdpkg.png"
+              alt="Legal Services SA Logo"
+              className="h-12 md:h-16 w-auto object-contain"
+            />
           </button>
 
           {/* Desktop Navigation */}
