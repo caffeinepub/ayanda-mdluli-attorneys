@@ -1,5 +1,4 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Quote } from 'lucide-react';
+import TestimonialsCarousel from './TestimonialsCarousel';
 
 const testimonials = [
     {
@@ -38,41 +37,8 @@ export default function TestimonialsSection() {
                         </p>
                     </div>
 
-                    {/* Testimonials Grid */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                        {testimonials.map((testimonial) => (
-                            <Card 
-                                key={testimonial.id}
-                                className="border-border hover:border-accent/30 transition-all duration-300 hover:shadow-md group"
-                            >
-                                <CardContent className="p-6">
-                                    {/* Quote Icon */}
-                                    <div className="mb-4">
-                                        <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
-                                            <Quote className="w-5 h-5 text-accent" strokeWidth={1.5} />
-                                        </div>
-                                    </div>
-
-                                    {/* Quote Text */}
-                                    <blockquote className="mb-6">
-                                        <p className="text-muted-foreground leading-relaxed">
-                                            "{testimonial.quote}"
-                                        </p>
-                                    </blockquote>
-
-                                    {/* Author Info */}
-                                    <div className="border-t border-border pt-4">
-                                        <p className="font-semibold text-primary">
-                                            {testimonial.name}
-                                        </p>
-                                        <p className="text-sm text-muted-foreground">
-                                            {testimonial.role}
-                                        </p>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        ))}
-                    </div>
+                    {/* Testimonials Carousel */}
+                    <TestimonialsCarousel testimonials={testimonials} />
                 </div>
             </div>
         </section>

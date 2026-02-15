@@ -1,4 +1,4 @@
-import { Badge } from '@/components/ui/badge';
+import PartnersMarquee from './PartnersMarquee';
 
 const partners = [
     { id: 1, name: 'Partner Alpha', category: 'Legal Services' },
@@ -25,32 +25,8 @@ export default function PartnersSection() {
                         </p>
                     </div>
 
-                    {/* Partners Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
-                        {partners.map((partner) => (
-                            <div
-                                key={partner.id}
-                                className="bg-background rounded-lg p-8 border border-border hover:border-accent/30 transition-all duration-300 hover:shadow-md group flex flex-col items-center justify-center text-center min-h-[160px]"
-                                role="article"
-                                aria-label={`Partner: ${partner.name}`}
-                            >
-                                {/* Partner Name */}
-                                <div className="mb-3">
-                                    <p className="text-xl font-semibold text-primary group-hover:text-accent transition-colors duration-300">
-                                        {partner.name}
-                                    </p>
-                                </div>
-
-                                {/* Category Badge */}
-                                <Badge 
-                                    variant="outline" 
-                                    className="border-accent/30 text-accent bg-accent/5 group-hover:bg-accent/10 transition-colors duration-300"
-                                >
-                                    {partner.category}
-                                </Badge>
-                            </div>
-                        ))}
-                    </div>
+                    {/* Partners Marquee */}
+                    <PartnersMarquee partners={partners} />
                 </div>
             </div>
         </section>

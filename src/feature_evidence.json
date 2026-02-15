@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-homepage-cta-section-component-finalctasection-so-its-background-is-white-matching-the-other-homepage-sections",
-      "featureTitle": "Update the homepage CTA section component (FinalCtaSection) so its background is white, matching the other homepage sections.",
+      "featureId": "feature-remove-the-contact-us-today-button-from-the-homepage-hero-section-so-only-the-schedule-a-consultation-cta-remains",
+      "featureTitle": "Remove the \"Contact Us Today\" button from the homepage Hero section so only the \"Schedule a Consultation\" CTA remains.",
       "files": [
-        "frontend/src/components/home/FinalCtaSection.tsx"
+        "frontend/src/components/home/HeroSection.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,15 +15,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-1"
+        "REQ-5"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-remove-the-contact-us-today-button-from-the-homepage-cta-section-finalctasection-including-any-unused-click-handler-logic-or-imports-that-are-only-needed-for-that-button",
-      "featureTitle": "Remove the \"Contact Us Today\" button from the homepage CTA section (FinalCtaSection), including any unused click-handler logic or imports that are only needed for that button.",
+      "featureId": "feature-update-the-homepage-our-approach-cards-to-1-replace-the-numeric-labels-with-icons-in-a-style-consistent-with-the-rest-of-the-website-2-use-a-white-card-background-3-apply-a-permanent-gold-border-using-the-site-s-existing-gold-theme-color-and-4-add-an-on-click-subtle-upward-lift-interaction-that-does-not-change-the-border-color-on-click",
+      "featureTitle": "Update the homepage \"Our Approach\" cards to (1) replace the numeric labels with icons in a style consistent with the rest of the website, (2) use a white card background, (3) apply a permanent gold border using the site’s existing gold theme color, and (4) add an on-click subtle upward-lift interaction that does not change the border color on click.",
       "files": [
-        "frontend/src/components/home/FinalCtaSection.tsx"
+        "frontend/src/components/home/AboutApproachSection.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -33,15 +33,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-2"
+        "REQ-6"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-remove-the-consultation-availability-text-block-from-the-homepage-cta-section-finalctasection",
-      "featureTitle": "Remove the consultation availability text block from the homepage CTA section (FinalCtaSection).",
+      "featureId": "feature-update-the-homepage-how-it-works-section-so-each-step-s-number-appears-outside-of-separate-from-the-text-box-card-with-the-number-shown-first-and-then-the-bordered-text-box-apply-a-gold-border-to-the-step-text-boxes-using-the-site-s-existing-gold-theme-color",
+      "featureTitle": "Update the homepage \"How It Works\" section so each step’s number appears outside of (separate from) the text box/card, with the number shown first and then the bordered text box. Apply a gold border to the step text boxes using the site’s existing gold theme color.",
       "files": [
-        "frontend/src/components/home/FinalCtaSection.tsx"
+        "frontend/src/components/home/HowItWorksSection.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -51,7 +51,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-3"
+        "REQ-7"
       ],
       "confidence": "high"
     }

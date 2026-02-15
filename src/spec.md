@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Make the homepage Final CTA section match the site’s white section styling and simplify its content by removing secondary elements.
+**Goal:** Refine the homepage UI by simplifying the hero CTAs and updating the visual design/interaction of the “Our Approach” and “How It Works” sections to match the site’s gold theme.
 
 **Planned changes:**
-- Update `frontend/src/components/home/FinalCtaSection.tsx` so the `<section id="contact">` renders on a white background (remove primary/navy background styling) while keeping text readable on white.
-- Remove the secondary "Contact Us Today" button from `FinalCtaSection`, including any now-unused handler logic/imports used only for that button.
-- Remove the consultation availability text block ("Available for consultations across South Africa...") and ensure spacing/layout remains clean with no leftover divider/border artifacts.
+- Remove the “Contact Us Today” button from the homepage Hero section, leaving only “Schedule a Consultation,” and clean up any now-unused handlers.
+- Redesign “Our Approach” cards: replace numeric labels (1–4) with icons, set card backgrounds to white (remaining legible in dark mode), apply a persistent gold border using the existing gold/accent theme token, and add a subtle on-click upward-lift interaction without changing the border color on click.
+- Update “How It Works” step layout so the step number appears outside/separate from the bordered text box (number first, then the card), and apply a gold border to each step card using the existing gold/accent theme token while keeping the section responsive.
 
-**User-visible outcome:** The homepage CTA section appears on a white background consistent with the rest of the homepage, shows only the remaining primary CTA button (still functioning as before), and no longer displays the secondary button or consultation availability text.
+**User-visible outcome:** The homepage hero shows a single consultation CTA, “Our Approach” cards use icons with a consistent gold-bordered style and subtle press interaction, and “How It Works” steps display their numbers outside the gold-bordered text boxes in a clean, responsive layout.

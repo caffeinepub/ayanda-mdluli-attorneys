@@ -61,7 +61,8 @@ export default function FaqSection() {
       />
       <div className="container-custom max-w-4xl">
         <div className="text-center mb-12">
-          <h2 className="text-primary mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-primary mb-6">Frequently Asked Questions</h2>
+          <div className="w-20 h-1 bg-accent mx-auto mb-8" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Find answers to common questions about our legal services and process
           </p>
@@ -86,7 +87,7 @@ export default function FaqSection() {
                   aria-controls={contentId}
                   onClick={() => toggleItem(index)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded-lg transition-colors"
+                  className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-lg transition-colors"
                 >
                   <span className={`font-heading font-semibold text-lg pr-4 transition-colors ${
                     isOpen ? 'text-accent' : 'text-foreground'

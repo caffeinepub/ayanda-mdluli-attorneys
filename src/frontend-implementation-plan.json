@@ -1,51 +1,56 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Homepage Final CTA section cleanup and white background",
+  "title": "Homepage UI updates: hero CTA removal, Our Approach card redesign, How It Works number layout",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Change FinalCtaSection background from primary (navy) to white to match other homepage sections while keeping text readable.",
+      "id": "REQ-5",
+      "summary": "Remove the secondary \"Contact Us Today\" CTA from the homepage hero so only \"Schedule a Consultation\" remains, cleaning up related logic.",
       "acceptanceCriteria": [
-        "In `frontend/src/components/home/FinalCtaSection.tsx`, the `<section id=\"contact\">` no longer uses the primary (navy) background styling and renders on a white background consistent with the rest of the homepage.",
-        "Text colors within the section remain readable on a white background (no low-contrast white-on-white)."
+        "In HeroSection, the button with label \"Contact Us Today\" is no longer rendered.",
+        "Hero layout remains visually balanced on mobile and desktop with a single CTA button.",
+        "No unused handler/function remains for the removed button (e.g., contact button click handler is removed if no longer needed)."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/home/FinalCtaSection.tsx",
+          "path": "frontend/src/components/home/HeroSection.tsx",
           "operation": "modify",
-          "description": "Update the `<section id=\"contact\">` styling to use a white/light background consistent with other sections (e.g., replace `bg-primary` with a white/background utility) and adjust heading/body text classes away from `text-primary-foreground` to readable on-white text colors; keep existing spacing/structure intact."
+          "description": "Remove the \"Contact Us Today\" button from the hero CTA row and delete the now-unused handler/functionality tied to that CTA; adjust spacing/alignment as needed so the single remaining CTA still looks balanced across breakpoints."
         }
       ]
     },
     {
-      "id": "REQ-2",
-      "summary": "Remove the secondary \"Contact Us Today\" CTA button from FinalCtaSection and clean up any now-unused code.",
+      "id": "REQ-6",
+      "summary": "Redesign \"Our Approach\" cards: replace numbers with icons, enforce white card background, apply permanent gold theme border, and add subtle press (active) upward-lift without border color changes.",
       "acceptanceCriteria": [
-        "The secondary CTA button labeled \"Contact Us Today\" is no longer rendered in `FinalCtaSection`.",
-        "Any now-unused code related only to the removed button (e.g., handler function and icon import) is removed or refactored so there are no lint/type errors.",
-        "The remaining primary button continues to work (scrolls to #contact when on the homepage and navigates to `/#contact` otherwise)."
+        "Each Our Approach card no longer displays the numeric text (1–4) and instead displays an icon per card.",
+        "Our Approach cards render with a white background in light mode (and remain legible in dark mode).",
+        "Our Approach cards have a gold border derived from the existing accent/gold theme token (not a newly introduced hard-coded random gold).",
+        "The gold border remains gold in default, hover, focus, and active/clicked states (no border color change on click).",
+        "Clicking/tapping a card triggers a subtle upward-lift effect (e.g., small translateY negative) and returns to normal when released; effect works on desktop and mobile."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/home/FinalCtaSection.tsx",
+          "path": "frontend/src/components/home/AboutApproachSection.tsx",
           "operation": "modify",
-          "description": "Remove the secondary button markup and delete `handleSecondaryClick`; remove any imports only used for that button (e.g., `Mail`) and ensure the remaining primary button’s click behavior remains unchanged and type/lint clean."
+          "description": "Update the four Our Approach cards to swap the numeric labels for icons (use existing site-consistent icon style, e.g., lucide-react), switch card surface to a white-in-light-mode token (e.g., card background) with dark-mode legibility, set a permanent border using the existing gold accent token (e.g., border-accent) and remove any hover/active border color changes, and add a subtle active/click lift interaction via transform/transition (e.g., active:-translate-y-1) that resets on release."
         }
       ]
     },
     {
-      "id": "REQ-3",
-      "summary": "Remove the consultation availability footer text block from FinalCtaSection and ensure spacing remains clean.",
+      "id": "REQ-7",
+      "summary": "Adjust \"How It Works\" steps so numbers are outside the bordered card and apply a gold theme border to each step text box.",
       "acceptanceCriteria": [
-        "The footer text block containing \"Available for consultations across South Africa...\" is no longer rendered in `FinalCtaSection`.",
-        "The CTA section layout still has appropriate spacing after removing the text block (no awkward extra border/divider left behind)."
+        "In HowItWorksSection, the step number is visually outside/separate from the step card/box (not inside the card content container).",
+        "The layout preserves the existing step titles and order (1 through 5).",
+        "Each step’s text box/card has a gold border using the site’s existing accent/gold theme token.",
+        "The section remains responsive and readable on mobile and desktop without overlapping number + card content."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/home/FinalCtaSection.tsx",
+          "path": "frontend/src/components/home/HowItWorksSection.tsx",
           "operation": "modify",
-          "description": "Delete the bottom availability text block container (including its border/divider) and tune surrounding margin/padding so the section ends with visually appropriate spacing after the removal."
+          "description": "Restructure each step’s markup so the number is rendered as its own element outside (preceding) the bordered Card/text container, with layout that keeps number first then the box; apply a gold border using the existing accent token on the Card (e.g., border-accent) and ensure responsive spacing/alignment prevents overlap on mobile and desktop."
         }
       ]
     }

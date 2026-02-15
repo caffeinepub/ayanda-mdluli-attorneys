@@ -1,10 +1,34 @@
 import { navigate } from "@/router/router";
 import { Button } from "@/components/ui/button";
+import { Users, Target, MessageSquare, Award } from 'lucide-react';
 
 export default function AboutApproachSection() {
     const handleLearnMore = () => {
         navigate('/about');
     };
+
+    const approachItems = [
+        {
+            icon: Users,
+            title: 'Client-Centered Focus',
+            description: 'Your goals are our priority. We take the time to understand your unique situation, concerns, and objectives, ensuring our legal strategy aligns with your best interests at every stage.',
+        },
+        {
+            icon: Target,
+            title: 'Strategic & Proactive',
+            description: 'We don\'t just react to legal challenges—we anticipate them. Our proactive approach identifies potential issues early and develops comprehensive strategies to protect your rights and interests.',
+        },
+        {
+            icon: MessageSquare,
+            title: 'Clear Communication',
+            description: 'Legal matters shouldn\'t be confusing. We explain complex legal concepts in plain language, keep you informed throughout the process, and ensure you understand your options at every decision point.',
+        },
+        {
+            icon: Award,
+            title: 'Results-Driven Excellence',
+            description: 'We measure our success by the outcomes we achieve for our clients. Through meticulous preparation, skilled negotiation, and aggressive advocacy when needed, we fight for the best possible results.',
+        },
+    ];
 
     return (
         <section id="about" className="bg-background border-b border-border scroll-mt-16 md:scroll-mt-20">
@@ -57,73 +81,29 @@ export default function AboutApproachSection() {
                     </div>
                     
                     <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-                        {/* Approach Item 1 */}
-                        <div className="bg-muted/50 rounded-lg p-8 border border-border hover:border-accent/30 transition-colors duration-300">
-                            <div className="flex items-start gap-4">
-                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                                    <span className="text-2xl font-bold text-accent">1</span>
+                        {approachItems.map((item, index) => {
+                            const Icon = item.icon;
+                            return (
+                                <div 
+                                    key={index}
+                                    className="bg-white dark:bg-card rounded-lg p-8 border-2 border-accent transition-all duration-300 active:-translate-y-2 cursor-pointer"
+                                >
+                                    <div className="flex items-start gap-4">
+                                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                                            <Icon className="w-6 h-6 text-accent" strokeWidth={2} />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-xl font-semibold text-primary mb-3">
+                                                {item.title}
+                                            </h3>
+                                            <p className="text-foreground/80 leading-relaxed">
+                                                {item.description}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 className="text-xl font-semibold text-primary mb-3">
-                                        Client-Centered Focus
-                                    </h3>
-                                    <p className="text-foreground/80 leading-relaxed">
-                                        Your goals are our priority. We take the time to understand your unique situation, concerns, and objectives, ensuring our legal strategy aligns with your best interests at every stage.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        {/* Approach Item 2 */}
-                        <div className="bg-muted/50 rounded-lg p-8 border border-border hover:border-accent/30 transition-colors duration-300">
-                            <div className="flex items-start gap-4">
-                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                                    <span className="text-2xl font-bold text-accent">2</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-semibold text-primary mb-3">
-                                        Strategic & Proactive
-                                    </h3>
-                                    <p className="text-foreground/80 leading-relaxed">
-                                        We don't just react to legal challenges—we anticipate them. Our proactive approach identifies potential issues early and develops comprehensive strategies to protect your rights and interests.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        {/* Approach Item 3 */}
-                        <div className="bg-muted/50 rounded-lg p-8 border border-border hover:border-accent/30 transition-colors duration-300">
-                            <div className="flex items-start gap-4">
-                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                                    <span className="text-2xl font-bold text-accent">3</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-semibold text-primary mb-3">
-                                        Clear Communication
-                                    </h3>
-                                    <p className="text-foreground/80 leading-relaxed">
-                                        Legal matters shouldn't be confusing. We explain complex legal concepts in plain language, keep you informed throughout the process, and ensure you understand your options at every decision point.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        {/* Approach Item 4 */}
-                        <div className="bg-muted/50 rounded-lg p-8 border border-border hover:border-accent/30 transition-colors duration-300">
-                            <div className="flex items-start gap-4">
-                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                                    <span className="text-2xl font-bold text-accent">4</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-semibold text-primary mb-3">
-                                        Results-Driven Excellence
-                                    </h3>
-                                    <p className="text-foreground/80 leading-relaxed">
-                                        We measure our success by the outcomes we achieve for our clients. Through meticulous preparation, skilled negotiation, and aggressive advocacy when needed, we fight for the best possible results.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>

@@ -1,32 +1,32 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
+  "summary": "Website UI/UX updates across hero, Our Approach, and How It Works sections (button removal, card icon/border styling, click animation, and number layout adjustments).",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-update-the-homepage-cta-section-component-finalctasection-so-its-background-is-white-matching-the-other-homepage-sections",
-      "title": "Update the homepage CTA section component (FinalCtaSection) so its background is white, matching the other homepage sections.",
+      "id": "feature-remove-the-contact-us-today-button-from-the-homepage-hero-section-so-only-the-schedule-a-consultation-cta-remains",
+      "title": "Remove the \"Contact Us Today\" button from the homepage Hero section so only the \"Schedule a Consultation\" CTA remains.",
       "reqIds": [
-        "REQ-1"
+        "REQ-5"
       ],
       "version": 1
     },
     {
-      "id": "feature-remove-the-contact-us-today-button-from-the-homepage-cta-section-finalctasection-including-any-unused-click-handler-logic-or-imports-that-are-only-needed-for-that-button",
-      "title": "Remove the \"Contact Us Today\" button from the homepage CTA section (FinalCtaSection), including any unused click-handler logic or imports that are only needed for that button.",
+      "id": "feature-update-the-homepage-our-approach-cards-to-1-replace-the-numeric-labels-with-icons-in-a-style-consistent-with-the-rest-of-the-website-2-use-a-white-card-background-3-apply-a-permanent-gold-border-using-the-site-s-existing-gold-theme-color-and-4-add-an-on-click-subtle-upward-lift-interaction-that-does-not-change-the-border-color-on-click",
+      "title": "Update the homepage \"Our Approach\" cards to (1) replace the numeric labels with icons in a style consistent with the rest of the website, (2) use a white card background, (3) apply a permanent gold border using the site’s existing gold theme color, and (4) add an on-click subtle upward-lift interaction that does not change the border color on click.",
       "reqIds": [
-        "REQ-2"
+        "REQ-6"
       ],
       "version": 1
     },
     {
-      "id": "feature-remove-the-consultation-availability-text-block-from-the-homepage-cta-section-finalctasection",
-      "title": "Remove the consultation availability text block from the homepage CTA section (FinalCtaSection).",
+      "id": "feature-update-the-homepage-how-it-works-section-so-each-step-s-number-appears-outside-of-separate-from-the-text-box-card-with-the-number-shown-first-and-then-the-bordered-text-box-apply-a-gold-border-to-the-step-text-boxes-using-the-site-s-existing-gold-theme-color",
+      "title": "Update the homepage \"How It Works\" section so each step’s number appears outside of (separate from) the text box/card, with the number shown first and then the bordered text box. Apply a gold border to the step text boxes using the site’s existing gold theme color.",
       "reqIds": [
-        "REQ-3"
+        "REQ-7"
       ],
       "version": 1
     }
@@ -34,12 +34,42 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Update homepage CTA section: set background to same white as other sections; remove 'Contact Us Today' button; remove 'available for consultation' text",
+      "summary": "Hero section: remove the “Contact us today” button entirely.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Our Approach cards: replace the numeric labels with icons in a style consistent with the rest of the website.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Our Approach cards: set card background to white and apply a permanent gold border using the site’s existing gold theme color (no border change on click).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Our Approach cards: add an on-click subtle upward-lift interaction effect.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "How It Works section: move numbers outside of the text boxes (numbers followed by bordered text boxes).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "How It Works boxes: apply a gold border using the site’s existing gold theme color.",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "Update homepage CTA section background and remove secondary elements",
+  "projectName": "Homepage UI updates: hero CTA removal, Our Approach card redesign, How It Works number layout",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

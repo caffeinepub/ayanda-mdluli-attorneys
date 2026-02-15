@@ -34,9 +34,10 @@ export default function TrustIntroSection() {
         <section className="bg-muted border-b border-border">
             <div className="container-custom py-16 md:py-20">
                 <div className="text-center mb-12">
-                    <h2 className="text-primary mb-4">
+                    <h2 className="text-primary mb-6">
                         Proven legal experience. Measurable Results
                     </h2>
+                    <div className="w-20 h-1 bg-accent mx-auto mb-8" />
                 </div>
                 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">

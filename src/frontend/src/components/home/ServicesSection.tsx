@@ -52,7 +52,7 @@ export default function ServicesSection() {
                     {/* Section Header */}
                     <div className="text-center mb-16">
                         <h2 className="text-primary mb-6">
-                            Comprehensive Legal Services Tailored to your neds
+                            Comprehensive Legal Services, Tailored to Your Needs.
                         </h2>
                         <div className="w-20 h-1 bg-accent mx-auto mb-8" />
                         <p className="text-lg text-muted-foreground max-w-3xl mx-auto">

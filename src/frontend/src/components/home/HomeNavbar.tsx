@@ -43,9 +43,6 @@ export default function HomeNavbar() {
     { label: 'Home', onClick: handleHomeClick },
     { label: 'About', onClick: () => handleSectionNavigation('about') },
     { label: 'Services', onClick: () => handleSectionNavigation('services') },
-    { label: 'How It Works', onClick: () => handleSectionNavigation('how-it-works') },
-    { label: 'Testimonials', onClick: () => handleSectionNavigation('testimonials') },
-    { label: 'Partners', onClick: () => handleSectionNavigation('partners') },
     { label: 'FAQs', onClick: () => handleSectionNavigation('faq-section') },
   ];
 
@@ -67,7 +64,7 @@ export default function HomeNavbar() {
           {/* Logo/Brand */}
           <button
             onClick={handleHomeClick}
-            className="font-heading text-xl md:text-2xl font-bold text-primary hover:text-accent transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded"
+            className="font-heading text-xl md:text-2xl font-bold text-primary hover:text-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
             aria-label="Go to homepage"
           >
             Legal Services SA
@@ -79,62 +76,62 @@ export default function HomeNavbar() {
               <button
                 key={link.label}
                 onClick={link.onClick}
-                className="text-foreground hover:text-accent transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded px-2 py-1"
+                className="text-foreground hover:text-accent transition-colors font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded px-2 py-1"
               >
                 {link.label}
               </button>
             ))}
             <Button
               onClick={handleContactClick}
-              className="ml-2"
+              className="ml-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
             >
-              Contact
+              Contact Us
             </Button>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-foreground hover:text-accent transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded"
+            className="md:hidden p-2 text-foreground hover:text-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMenuOpen ? (
-              <X className="w-6 h-6" aria-hidden="true" />
+              <X className="w-6 h-6" />
             ) : (
-              <Menu className="w-6 h-6" aria-hidden="true" />
+              <Menu className="w-6 h-6" />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
-        <div
-          id="mobile-menu"
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-          }`}
-        >
-          <div className="py-4 space-y-2 border-t border-border">
-            {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={link.onClick}
-                className="block w-full text-left px-4 py-3 text-foreground hover:bg-muted hover:text-accent transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-accent focus:ring-inset rounded"
-              >
-                {link.label}
-              </button>
-            ))}
-            <div className="px-4 pt-2">
-              <Button
-                onClick={handleContactClick}
-                className="w-full"
-              >
-                Contact
-              </Button>
+        {isMenuOpen && (
+          <div
+            id="mobile-menu"
+            className="md:hidden py-4 border-t border-border"
+          >
+            <div className="flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <button
+                  key={link.label}
+                  onClick={link.onClick}
+                  className="text-left text-foreground hover:text-accent transition-colors font-medium px-4 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded"
+                >
+                  {link.label}
+                </button>
+              ))}
+              <div className="px-4 pt-2">
+                <Button
+                  onClick={handleContactClick}
+                  className="w-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                >
+                  Contact Us
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );
