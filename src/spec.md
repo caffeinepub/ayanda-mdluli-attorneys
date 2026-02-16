@@ -1,12 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Update the Contact page hero section to use the provided photo as a full-bleed background with a dark dimmed overlay for readable, theme-consistent text.
+**Goal:** Use the uploaded legal still-life image as the Services page hero section background while preserving existing hero copy and layout.
 
 **Planned changes:**
-- Add `pexels-sora-shimazaki-5668882.jpg` to the frontend as a static asset and set it as the background image for the Contact page hero section (the first `<section>` in `frontend/src/pages/ContactPage.tsx`).
-- Style the hero section background to be full-bleed and responsive (centered, cover behavior) with no tiling/stretch artifacts.
-- Add a dark overlay layer above the background image but behind the hero content so the existing “Book Now” heading, divider, and description remain readable and unchanged.
-- Ensure only the selected hero section is affected; other Contact page sections remain visually unchanged, and the other duplicate uploaded images are not used.
+- Add the uploaded image `ChatGPT Image Feb 16, 2026, 11_49_14 AM.png` to `frontend/public/assets/generated/` as a static asset for the Services page to reference.
+- Update only the Services page Hero Section (`frontend/src/pages/ServicesPage.tsx`, first `<section>`) to render the image as a full-bleed background (cover + centered).
+- Add a dark dimmed overlay layer behind the hero text to maintain readability without changing any hero text content.
 
-**User-visible outcome:** The Contact page hero displays a full-width background image with a dark dimming overlay, preserving the existing hero text content and overall site styling while improving readability.
+**User-visible outcome:** The Services page hero displays the uploaded image as a responsive background with a dark overlay, keeping the existing hero heading and text unchanged.

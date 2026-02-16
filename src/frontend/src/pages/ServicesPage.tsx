@@ -12,8 +12,21 @@ export default function ServicesPage() {
     <>
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="bg-primary text-primary-foreground py-16 md:py-24">
-          <div className="container-custom">
+        <section className="relative bg-primary text-primary-foreground py-16 md:py-24 overflow-hidden">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: 'url(/assets/generated/services-hero-bg.dim_1024x1536.png)'
+            }}
+            aria-hidden="true"
+          />
+          
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+          
+          {/* Content */}
+          <div className="container-custom relative z-10">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
                 Our Legal Services

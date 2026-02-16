@@ -1,47 +1,36 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-15T23:26:56.658Z",
+  "generatedAt": "2026-02-16T09:59:22.849Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 3,
-    "implemented": 3,
+    "total": 2,
+    "implemented": 2,
     "items": [
       {
         "id": "REQ-1",
-        "summary": "Add the uploaded image file `pexels-sora-shimazaki-5668882.jpg` to the frontend as a static asset (e.g., under `frontend/public/`) and use it as the background image for the selected Contact page section at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` (the first `<section>` in `frontend/src/pages/ContactPage.tsx`, currently the “Hero Section”).",
+        "summary": "Add the uploaded image (ChatGPT Image Feb 16, 2026, 11_49_14 AM.png) to the frontend as a static asset under `frontend/public/assets/generated/` so it can be referenced by the Services page.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/pexels-sora-shimazaki-5668882.jpg",
-          "frontend/src/pages/ContactPage.tsx"
+          "frontend/public/assets/generated/ChatGPT Image Feb 16, 2026, 11_49_14 AM.png",
+          "frontend/public/assets/generated/services-hero-bg.dim_1024x1536.png"
         ],
         "matchedFiles": [
-          "frontend/src/pages/ContactPage.tsx"
+          "frontend/public/assets/generated/services-hero-bg.dim_1024x1536.png"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Update the selected Contact page hero section to be full-bleed with the background image covering the entire section (responsive `cover` behavior, centered), and add a dark dimmed overlay layer above the image but behind the text to ensure readability and visual blending with the site theme.",
+        "summary": "Update the selected Services page section at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` (the Hero Section in `frontend/src/pages/ServicesPage.tsx`) to use the uploaded image as a full-bleed background with responsive `cover` behavior, centered positioning, and a dark dimmed overlay layer behind the existing text to ensure readability; do not change any hero copy.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/ContactPage.tsx"
+          "frontend/src/pages/ServicesPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/ContactPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "Keep the existing hero content (heading “Book Now”, accent divider, and description text) visually consistent with the current website styling while applying the new background/overlay (no copy changes; only visual/styling changes to the selected section).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/ContactPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/ContactPage.tsx"
+          "frontend/src/pages/ServicesPage.tsx"
         ]
       }
     ]
@@ -51,7 +40,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/pages/ContactPage.tsx",
+    "frontend/public/assets/generated/services-hero-bg.dim_1024x1536.png",
+    "frontend/src/pages/ServicesPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

@@ -1,79 +1,70 @@
 {
   "kind": "build_request",
-  "title": "Set Contact page hero section background image with dark dimmed overlay (full-bleed)",
+  "title": "Set uploaded image as Services page hero section background",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Add the uploaded image file `pexels-sora-shimazaki-5668882.jpg` to the frontend as a static asset (e.g., under `frontend/public/`) and use it as the background image for the selected Contact page section at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` (the first `<section>` in `frontend/src/pages/ContactPage.tsx`, currently the “Hero Section”).",
+      "text": "Add the uploaded image (ChatGPT Image Feb 16, 2026, 11_49_14 AM.png) to the frontend as a static asset under `frontend/public/assets/generated/` so it can be referenced by the Services page.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "Use this image for the background of this (selected section) for the contact page.",
-          "The user has uploaded 3 image(s): pexels-sora-shimazaki-5668882.jpg, pexels-sora-shimazaki-5668882-1.jpg, pexels-sora-shimazaki-5668882-2.jpg.",
-          "Element 1 XPath: /html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]",
-          "Just one *I uploaded more by mistake"
+          "Use this image for the background of the selected section in the services page"
         ]
       },
       "acceptanceCriteria": [
-        "The Contact page hero section (first `<section>` in `ContactPage.tsx`) renders with `pexels-sora-shimazaki-5668882.jpg` as its background.",
-        "The other two uploaded duplicate images are not used by the UI."
+        "A new static image file exists in `frontend/public/assets/generated/` matching the required filename.",
+        "The Services page can reference the image via a static path (no backend usage)."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Update the selected Contact page hero section to be full-bleed with the background image covering the entire section (responsive `cover` behavior, centered), and add a dark dimmed overlay layer above the image but behind the text to ensure readability and visual blending with the site theme.",
+      "text": "Update the selected Services page section at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` (the Hero Section in `frontend/src/pages/ServicesPage.tsx`) to use the uploaded image as a full-bleed background with responsive `cover` behavior, centered positioning, and a dark dimmed overlay layer behind the existing text to ensure readability; do not change any hero copy.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-1",
+          "msg-3"
         ],
         "quotes": [
-          "1. Dark dimmed overlay",
-          "2. Whole section full bleed",
-          "Make sure the image blends well with the text and style and theme of the website. Maybe you can work around the opacity or dimness but make it visually pleasing"
+          "Use this image for the background of the selected section in the services page",
+          "Apply changes"
         ]
       },
       "acceptanceCriteria": [
-        "On mobile and desktop, the background image fills the entire hero section area without tiling or stretching artifacts (uses a cover-like behavior).",
-        "A dark dimming overlay is visible over the background image, and hero text remains clearly readable (sufficient contrast).",
-        "The overlay does not affect layout or interactivity of hero content (text remains selectable/clickable as expected)."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Keep the existing hero content (heading “Book Now”, accent divider, and description text) visually consistent with the current website styling while applying the new background/overlay (no copy changes; only visual/styling changes to the selected section).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Proceed with the build",
-          "Make sure the image blends well with the text and style and theme of the website."
-        ]
-      },
-      "acceptanceCriteria": [
-        "Hero title, divider, and description copy remain unchanged.",
-        "No visual regressions are introduced to non-selected sections of the Contact page (e.g., the contact form section styles remain the same)."
+        "The first `<section>` in `frontend/src/pages/ServicesPage.tsx` renders the uploaded image as its background (cover + centered).",
+        "A dark overlay is visible above the image and behind the hero content to maintain text contrast.",
+        "Hero heading, divider, and paragraph text content remains unchanged.",
+        "Only the selected section (Hero Section) styling is modified; the rest of the Services page layout remains visually consistent."
       ]
     }
   ],
   "constraints": [
-    "Apply changes ONLY to the selected section (XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]`) on the Contact page.",
-    "Do not edit any files under `frontend/src/components/ui` (read-only components must be composed, not modified).",
-    "Backend remains single-actor Motoko; no backend changes are required for this styling update."
+    "Apply changes ONLY to the selected element at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` on the Services page.",
+    "Do not change any user-facing copy in the Services page hero section.",
+    "Do not edit any files under `frontend/src/components/ui` or other `frontend.immutablePaths`."
   ],
   "nonGoals": [
-    "Do not implement new contact form behavior, validation rules, or backend submission.",
-    "Do not redesign other sections of the Contact page beyond ensuring the hero section background/overlay blends with the existing theme.",
-    "Do not add a carousel or slideshow to the Contact page hero; use only one image as specified."
+    "No backend changes (no Motoko canister logic changes).",
+    "No changes to other pages (Home, About, Contact) beyond shared styles that are strictly necessary for the Services hero background implementation."
   ],
   "imageRequirements": {
-    "required": [],
+    "required": [
+      "Legal still-life photo background with scales of justice, gavel, and documents (services-hero-bg.dim_1024x1536.png)"
+    ],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

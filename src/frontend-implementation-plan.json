@@ -1,56 +1,42 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Contact page hero: full-bleed background image with dark dim overlay",
+  "title": "Set Services page hero background to uploaded static image with dim overlay",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add the provided hero background image as a public static asset and apply it to the Contact page hero section background (only that section), without using the duplicate uploads.",
+      "summary": "Add the uploaded hero background image to the frontend as a generated static asset for Services page use.",
       "acceptanceCriteria": [
-        "The Contact page hero section (first `<section>` in `ContactPage.tsx`) renders with `pexels-sora-shimazaki-5668882.jpg` as its background.",
-        "The other two uploaded duplicate images are not used by the UI."
+        "A new static image file exists in `frontend/public/assets/generated/` matching the required filename.",
+        "The Services page can reference the image via a static path (no backend usage)."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/pexels-sora-shimazaki-5668882.jpg",
+          "path": "frontend/public/assets/generated/ChatGPT Image Feb 16, 2026, 11_49_14 AM.png",
           "operation": "create",
-          "description": "Add the uploaded image file as a static public asset so it can be referenced by the Contact page hero background."
+          "description": "Add the provided uploaded image to the generated static assets folder so it can be referenced directly by the Services page via a static path."
         },
         {
-          "path": "frontend/src/pages/ContactPage.tsx",
-          "operation": "modify",
-          "description": "Update only the first <section> (Hero Section) to reference the static asset at frontend/public/assets/pexels-sora-shimazaki-5668882.jpg as its background image, and ensure no references are added to pexels-sora-shimazaki-5668882-1.jpg or pexels-sora-shimazaki-5668882-2.jpg."
+          "path": "frontend/public/assets/generated/services-hero-bg.dim_1024x1536.png",
+          "operation": "create",
+          "description": "Add the required generated image asset `frontend/public/assets/generated/services-hero-bg.dim_1024x1536.png` (from imageRequirements) for use as the Services hero background static asset."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Make the Contact hero section full-bleed with responsive cover/center background behavior and add a dark overlay layer behind the text for readability.",
+      "summary": "Update only the Services page hero section to render the uploaded image as a full-bleed cover background with a dark overlay behind existing text, without changing copy.",
       "acceptanceCriteria": [
-        "On mobile and desktop, the background image fills the entire hero section area without tiling or stretching artifacts (uses a cover-like behavior).",
-        "A dark dimming overlay is visible over the background image, and hero text remains clearly readable (sufficient contrast).",
-        "The overlay does not affect layout or interactivity of hero content (text remains selectable/clickable as expected)."
+        "The first `<section>` in `frontend/src/pages/ServicesPage.tsx` renders the uploaded image as its background (cover + centered).",
+        "A dark overlay is visible above the image and behind the hero content to maintain text contrast.",
+        "Hero heading, divider, and paragraph text content remains unchanged.",
+        "Only the selected section (Hero Section) styling is modified; the rest of the Services page layout remains visually consistent."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/ContactPage.tsx",
+          "path": "frontend/src/pages/ServicesPage.tsx",
           "operation": "modify",
-          "description": "Within the first <section> only, implement full-bleed background behavior (cover + centered, no-repeat) and add an overlay layer (e.g., an absolutely-positioned element) above the image but below hero content, with appropriate stacking context so the text remains interactive."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Preserve the existing hero copy and maintain current site styling consistency while applying only the new hero background/overlay changes, avoiding regressions in other Contact sections.",
-      "acceptanceCriteria": [
-        "Hero title, divider, and description copy remain unchanged.",
-        "No visual regressions are introduced to non-selected sections of the Contact page (e.g., the contact form section styles remain the same)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/ContactPage.tsx",
-          "operation": "modify",
-          "description": "Adjust only styling/layout wrappers inside the first <section> as needed to keep the existing heading (“Book Now”), accent divider, and description visually consistent and readable over the new background/overlay, without changing any text and without modifying the later Contact Form section."
+          "description": "Modify only the first (Hero) `<section>` to use a full-bleed background image (static asset under `frontend/public/assets/generated/`, using cover and centered positioning) and add a dark overlay layer behind the existing hero content to preserve readability, without changing any hero copy or altering other sections."
         }
       ]
     }

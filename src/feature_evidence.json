@@ -2,11 +2,9 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-the-uploaded-image-file-pexels-sora-shimazaki-5668882-jpg-to-the-frontend-as-a-static-asset-e-g-under-frontend-public-and-use-it-as-the-background-image-for-the-selected-contact-page-section-at-xpath-html-1-body-1-div-1-div-1-div-1-main-1-section-1-the-first-section-in-frontend-src-pages-contactpage-tsx-currently-the-hero-section",
-      "featureTitle": "Add the uploaded image file `pexels-sora-shimazaki-5668882.jpg` to the frontend as a static asset (e.g., under `frontend/public/`) and use it as the background image for the selected Contact page section at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` (the first `<section>` in `frontend/src/pages/ContactPage.tsx`, currently the “Hero Section”).",
-      "files": [
-        "frontend/src/pages/ContactPage.tsx"
-      ],
+      "featureId": "feature-add-the-uploaded-image-chatgpt-image-feb-16-2026-11-49-14-am-png-to-the-frontend-as-a-static-asset-under-frontend-public-assets-generated-so-it-can-be-referenced-by-the-services-page",
+      "featureTitle": "Add the uploaded image (ChatGPT Image Feb 16, 2026, 11_49_14 AM.png) to the frontend as a static asset under `frontend/public/assets/generated/` so it can be referenced by the Services page.",
+      "files": [],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
@@ -20,10 +18,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-update-the-selected-contact-page-hero-section-to-be-full-bleed-with-the-background-image-covering-the-entire-section-responsive-cover-behavior-centered-and-add-a-dark-dimmed-overlay-layer-above-the-image-but-behind-the-text-to-ensure-readability-and-visual-blending-with-the-site-theme",
-      "featureTitle": "Update the selected Contact page hero section to be full-bleed with the background image covering the entire section (responsive `cover` behavior, centered), and add a dark dimmed overlay layer above the image but behind the text to ensure readability and visual blending with the site theme.",
+      "featureId": "feature-update-the-selected-services-page-section-at-xpath-html-1-body-1-div-1-div-1-div-1-main-1-section-1-the-hero-section-in-frontend-src-pages-servicespage-tsx-to-use-the-uploaded-image-as-a-full-bleed-background-with-responsive-cover-behavior-centered-positioning-and-a-dark-dimmed-overlay-layer-behind-the-existing-text-to-ensure-readability-do-not-change-any-hero-copy",
+      "featureTitle": "Update the selected Services page section at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` (the Hero Section in `frontend/src/pages/ServicesPage.tsx`) to use the uploaded image as a full-bleed background with responsive `cover` behavior, centered positioning, and a dark dimmed overlay layer behind the existing text to ensure readability; do not change any hero copy.",
       "files": [
-        "frontend/src/pages/ContactPage.tsx"
+        "frontend/src/pages/ServicesPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -34,24 +32,6 @@
       ],
       "testIds": [
         "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-keep-the-existing-hero-content-heading-book-now-accent-divider-and-description-text-visually-consistent-with-the-current-website-styling-while-applying-the-new-background-overlay-no-copy-changes-only-visual-styling-changes-to-the-selected-section",
-      "featureTitle": "Keep the existing hero content (heading “Book Now”, accent divider, and description text) visually consistent with the current website styling while applying the new background/overlay (no copy changes; only visual/styling changes to the selected section).",
-      "files": [
-        "frontend/src/pages/ContactPage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-3"
       ],
       "confidence": "high"
     }

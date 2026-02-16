@@ -1,34 +1,25 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "Website update: apply a user-provided image as a full-bleed background on the selected Contact page section with a dark dimmed overlay for readability.",
-  "architectural_notes": [
-    "Implement section background image using full-bleed cover styling plus a dark overlay layer (opacity/dimness) to maintain text contrast and visual consistency."
-  ],
+  "summary": "New project",
+  "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Legal still-life photo background with scales of justice, gavel, and documents (services-hero-bg.dim_1024x1536.png)",
   "existing_features": [
     {
-      "id": "feature-add-the-uploaded-image-file-pexels-sora-shimazaki-5668882-jpg-to-the-frontend-as-a-static-asset-e-g-under-frontend-public-and-use-it-as-the-background-image-for-the-selected-contact-page-section-at-xpath-html-1-body-1-div-1-div-1-div-1-main-1-section-1-the-first-section-in-frontend-src-pages-contactpage-tsx-currently-the-hero-section",
-      "title": "Add the uploaded image file `pexels-sora-shimazaki-5668882.jpg` to the frontend as a static asset (e.g., under `frontend/public/`) and use it as the background image for the selected Contact page section at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` (the first `<section>` in `frontend/src/pages/ContactPage.tsx`, currently the “Hero Section”).",
+      "id": "feature-add-the-uploaded-image-chatgpt-image-feb-16-2026-11-49-14-am-png-to-the-frontend-as-a-static-asset-under-frontend-public-assets-generated-so-it-can-be-referenced-by-the-services-page",
+      "title": "Add the uploaded image (ChatGPT Image Feb 16, 2026, 11_49_14 AM.png) to the frontend as a static asset under `frontend/public/assets/generated/` so it can be referenced by the Services page.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-update-the-selected-contact-page-hero-section-to-be-full-bleed-with-the-background-image-covering-the-entire-section-responsive-cover-behavior-centered-and-add-a-dark-dimmed-overlay-layer-above-the-image-but-behind-the-text-to-ensure-readability-and-visual-blending-with-the-site-theme",
-      "title": "Update the selected Contact page hero section to be full-bleed with the background image covering the entire section (responsive `cover` behavior, centered), and add a dark dimmed overlay layer above the image but behind the text to ensure readability and visual blending with the site theme.",
+      "id": "feature-update-the-selected-services-page-section-at-xpath-html-1-body-1-div-1-div-1-div-1-main-1-section-1-the-hero-section-in-frontend-src-pages-servicespage-tsx-to-use-the-uploaded-image-as-a-full-bleed-background-with-responsive-cover-behavior-centered-positioning-and-a-dark-dimmed-overlay-layer-behind-the-existing-text-to-ensure-readability-do-not-change-any-hero-copy",
+      "title": "Update the selected Services page section at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` (the Hero Section in `frontend/src/pages/ServicesPage.tsx`) to use the uploaded image as a full-bleed background with responsive `cover` behavior, centered positioning, and a dark dimmed overlay layer behind the existing text to ensure readability; do not change any hero copy.",
       "reqIds": [
         "REQ-2"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-keep-the-existing-hero-content-heading-book-now-accent-divider-and-description-text-visually-consistent-with-the-current-website-styling-while-applying-the-new-background-overlay-no-copy-changes-only-visual-styling-changes-to-the-selected-section",
-      "title": "Keep the existing hero content (heading “Book Now”, accent divider, and description text) visually consistent with the current website styling while applying the new background/overlay (no copy changes; only visual/styling changes to the selected section).",
-      "reqIds": [
-        "REQ-3"
       ],
       "version": 1
     }
@@ -36,13 +27,13 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Set the uploaded image as the background for the selected Contact page section; full-bleed cover with a dark dimmed overlay to blend with site theme and keep text readable; proceed with build.",
+      "summary": "Set the uploaded image as the background for the selected section on the Services page",
       "reqIds": [],
       "status": "pending"
     }
   ],
   "gameProjectType": "none",
-  "projectName": "Set Contact page hero section background image with dark dimmed overlay (full-bleed)",
+  "projectName": "Set uploaded image as Services page hero section background",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }
