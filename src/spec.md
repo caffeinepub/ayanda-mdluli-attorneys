@@ -1,10 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Remove the grey flash on the Contact Us page hero background during reload by preloading the existing hero image so it appears immediately.
+**Goal:** Replace the navbar logo image with a text brand label.
 
 **Planned changes:**
-- Preload the existing Contact Us hero background image (`/assets/pexels-sora-shimazaki-5668882.jpg`) using the same approach already used elsewhere in the project (e.g., existing preload hook/pattern), applied to the Contact Us hero section content.
-- Add a `<link rel="preload" as="image" href="/assets/pexels-sora-shimazaki-5668882.jpg" />` hint in `frontend/index.html` alongside other critical hero image preloads (without removing any existing hints).
+- In `frontend/src/components/home/HomeNavbar.tsx`, remove the existing navbar logo `<img>` element and replace it with a text node that reads exactly `Ayanda Mdluli Atttorneys`.
+- Keep the text within the existing logo container to preserve navbar height and alignment across breakpoints.
 
-**User-visible outcome:** Hard-refreshing or directly loading `/contact` no longer shows an initial grey hero background; the hero image is visible immediately (or as close as technically possible) without changing its positioning, sizing, or layout.
+**User-visible outcome:** The navbar shows the text `Ayanda Mdluli Atttorneys` in the logo area (with no broken image icon), while the rest of the navbar remains unchanged.

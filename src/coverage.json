@@ -1,35 +1,24 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-16T12:31:19.551Z",
+  "generatedAt": "2026-02-17T22:09:42.803Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 2,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-5",
-        "summary": "Ensure the Contact Us page hero background image loads instantly on page reload (no initial grey placeholder flash) by preloading the existing hero image asset and applying the preload behavior to the Contact Us page content (selected element XPath: /html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[2]). The hero image must not be repositioned or visually altered—only the loading behavior should change.",
+        "id": "REQ-1",
+        "summary": "In `frontend/src/components/home/HomeNavbar.tsx`, replace the navbar logo `<img>` element (XPath: `/html[1]/body[1]/div[1]/nav[1]/div[1]/div[1]/button[1]/div[1]/img[1]`) with a text node that reads exactly: `Ayanda Mdluli Atttorneys` (remove the image entirely so no broken image icon can appear).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/ContactPage.tsx"
+          "frontend/src/components/home/HomeNavbar.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/ContactPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-6",
-        "summary": "Add a preload hint for the Contact Us hero background image in frontend/index.html so direct navigation/reload of the Contact Us route fetches the hero image before render.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/index.html"
-        ],
-        "matchedFiles": [
-          "frontend/index.html"
+          "frontend/src/components/home/HomeNavbar.tsx"
         ]
       }
     ]
@@ -39,8 +28,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/index.html",
-    "frontend/src/pages/ContactPage.tsx",
+    "frontend/src/components/home/HomeNavbar.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

@@ -1,37 +1,22 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Preload Contact Us hero background to eliminate grey flash on reload",
+  "title": "Replace navbar logo image with text brand",
   "requirements": [
     {
-      "id": "REQ-5",
-      "summary": "Preload the existing Contact Us hero background image and apply the same preload behavior used on other pages, without changing hero visuals or layout.",
+      "id": "REQ-1",
+      "summary": "Replace the navbar logo <img> in HomeNavbar with the exact brand text while keeping the existing logo container sizing/alignment.",
       "acceptanceCriteria": [
-        "Hard-refreshing (/contact) does not show a grey hero background before the hero image appears; the background image is visible immediately on first paint or as close as technically possible with preloading (matching the Home hero experience).",
-        "The Contact Us hero background image URL remains exactly the same as currently used: /assets/pexels-sora-shimazaki-5668882.jpg.",
-        "No change to hero background positioning (e.g., bg-center / background-position), sizing (bg-cover), or layout spacing.",
-        "Preload is implemented using the same approach already used elsewhere in the project (e.g., head preload hints and/or the existing usePreloadImages hook)."
+        "The logo area in the navbar renders the text `Ayanda Mdluli Atttorneys` instead of an image.",
+        "No `<img>` element exists for the navbar logo in `HomeNavbar.tsx` after the change.",
+        "The navbar no longer shows a broken image icon in the logo position on reload.",
+        "The text remains inside the existing logo container so the navbar height and alignment remain consistent across breakpoints."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/ContactPage.tsx",
+          "path": "frontend/src/components/home/HomeNavbar.tsx",
           "operation": "modify",
-          "description": "Introduce a Contact hero image constant set to the exact URL /assets/pexels-sora-shimazaki-5668882.jpg, and preload it using the existing usePreloadImages hook (same pattern as About/Services). Keep the hero background element’s existing bg-cover/bg-center classes and layout unchanged; only adjust loading behavior and wiring."
-        }
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "summary": "Add a preload hint in index.html for the Contact Us hero background image to improve first paint on direct navigation/reload.",
-      "acceptanceCriteria": [
-        "frontend/index.html includes a <link rel='preload' as='image' href='/assets/pexels-sora-shimazaki-5668882.jpg' /> entry alongside the other critical hero image preloads.",
-        "No existing preload hints are removed."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/index.html",
-          "operation": "modify",
-          "description": "Add a new image preload hint for /assets/pexels-sora-shimazaki-5668882.jpg alongside the existing critical hero image preloads, without removing or altering existing preload entries."
+          "description": "Replace the logo <img> element inside the existing logo container with a plain text node that reads exactly `Ayanda Mdluli Atttorneys`, removing the image element entirely while preserving the existing container and surrounding navbar structure/behavior."
         }
       ]
     }
