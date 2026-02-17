@@ -2,8 +2,14 @@ import { servicesData } from './servicesData';
 import Footer from '../components/Footer';
 import { navigate } from '../router/router';
 import RevealOnScroll from '../components/common/RevealOnScroll';
+import { usePreloadImages } from '../hooks/usePreloadImages';
+
+const SERVICES_HERO_IMAGE = '/assets/generated/servicespage.dim_1024x1536.png';
 
 export default function ServicesPage() {
+  // Preload hero background image
+  usePreloadImages([SERVICES_HERO_IMAGE]);
+
   const handleContactUs = () => {
     navigate('/contact');
   };
@@ -17,22 +23,19 @@ export default function ServicesPage() {
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: 'url(/assets/generated/services-hero-bg.dim_1024x1536.png)'
+              backgroundImage: `url(${SERVICES_HERO_IMAGE})`
             }}
             aria-hidden="true"
           />
           
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
-          
           {/* Content */}
           <div className="container-custom relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
+              <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-white drop-shadow-lg">
                 Our Legal Services
               </h1>
               <div className="w-20 h-1 bg-accent mx-auto mb-8" />
-              <p className="text-lg md:text-xl text-primary-foreground/90">
+              <p className="text-lg md:text-xl text-white drop-shadow-md">
                 Our services cover a wide range of legal matters, including family law, civil law, commercial law, labour law, and much more. Trust us to deliver expert guidance and support in all your legal needs.
               </p>
             </div>

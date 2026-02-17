@@ -9,6 +9,9 @@ import { Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
 import Footer from '../components/Footer';
 import ServiceSelectorAccordion from '../components/contact/ServiceSelectorAccordion';
 import RevealOnScroll from '../components/common/RevealOnScroll';
+import { usePreloadImages } from '../hooks/usePreloadImages';
+
+const CONTACT_HERO_IMAGE = '/assets/pexels-sora-shimazaki-5668882.jpg';
 
 interface FormData {
   fullName: string;
@@ -27,6 +30,9 @@ interface FormErrors {
 }
 
 export default function ContactPage() {
+  // Preload hero background image
+  usePreloadImages([CONTACT_HERO_IMAGE]);
+
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
     email: '',
@@ -122,7 +128,7 @@ export default function ContactPage() {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: 'url(/assets/pexels-sora-shimazaki-5668882.jpg)',
+              backgroundImage: `url(${CONTACT_HERO_IMAGE})`,
             }}
           />
           

@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
 interface RevealOnScrollProps {
   children: ReactNode;
@@ -12,8 +12,6 @@ export default function RevealOnScroll({
   delay = 0 
 }: RevealOnScrollProps) {
   const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     // Check for reduced motion preference
@@ -25,31 +23,13 @@ export default function RevealOnScroll({
       return;
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          timeoutRef.current = window.setTimeout(() => {
-            setIsVisible(true);
-          }, delay);
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
-      }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    // Trigger visibility on mount after optional delay
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, delay);
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-      if (timeoutRef.current !== null) {
-        clearTimeout(timeoutRef.current);
-      }
+      clearTimeout(timer);
     };
   }, [delay]);
 
@@ -60,7 +40,6 @@ export default function RevealOnScroll({
 
   return (
     <div 
-      ref={ref} 
       className={`transition-all duration-700 ease-out ${variantClasses[variant]}`}
     >
       {children}

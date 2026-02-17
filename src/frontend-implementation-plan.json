@@ -1,42 +1,37 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Set Services page hero background to uploaded static image with dim overlay",
+  "title": "Preload Contact Us hero background to eliminate grey flash on reload",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Add the uploaded hero background image to the frontend as a generated static asset for Services page use.",
+      "id": "REQ-5",
+      "summary": "Preload the existing Contact Us hero background image and apply the same preload behavior used on other pages, without changing hero visuals or layout.",
       "acceptanceCriteria": [
-        "A new static image file exists in `frontend/public/assets/generated/` matching the required filename.",
-        "The Services page can reference the image via a static path (no backend usage)."
+        "Hard-refreshing (/contact) does not show a grey hero background before the hero image appears; the background image is visible immediately on first paint or as close as technically possible with preloading (matching the Home hero experience).",
+        "The Contact Us hero background image URL remains exactly the same as currently used: /assets/pexels-sora-shimazaki-5668882.jpg.",
+        "No change to hero background positioning (e.g., bg-center / background-position), sizing (bg-cover), or layout spacing.",
+        "Preload is implemented using the same approach already used elsewhere in the project (e.g., head preload hints and/or the existing usePreloadImages hook)."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/ChatGPT Image Feb 16, 2026, 11_49_14 AM.png",
-          "operation": "create",
-          "description": "Add the provided uploaded image to the generated static assets folder so it can be referenced directly by the Services page via a static path."
-        },
-        {
-          "path": "frontend/public/assets/generated/services-hero-bg.dim_1024x1536.png",
-          "operation": "create",
-          "description": "Add the required generated image asset `frontend/public/assets/generated/services-hero-bg.dim_1024x1536.png` (from imageRequirements) for use as the Services hero background static asset."
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Introduce a Contact hero image constant set to the exact URL /assets/pexels-sora-shimazaki-5668882.jpg, and preload it using the existing usePreloadImages hook (same pattern as About/Services). Keep the hero background element’s existing bg-cover/bg-center classes and layout unchanged; only adjust loading behavior and wiring."
         }
       ]
     },
     {
-      "id": "REQ-2",
-      "summary": "Update only the Services page hero section to render the uploaded image as a full-bleed cover background with a dark overlay behind existing text, without changing copy.",
+      "id": "REQ-6",
+      "summary": "Add a preload hint in index.html for the Contact Us hero background image to improve first paint on direct navigation/reload.",
       "acceptanceCriteria": [
-        "The first `<section>` in `frontend/src/pages/ServicesPage.tsx` renders the uploaded image as its background (cover + centered).",
-        "A dark overlay is visible above the image and behind the hero content to maintain text contrast.",
-        "Hero heading, divider, and paragraph text content remains unchanged.",
-        "Only the selected section (Hero Section) styling is modified; the rest of the Services page layout remains visually consistent."
+        "frontend/index.html includes a <link rel='preload' as='image' href='/assets/pexels-sora-shimazaki-5668882.jpg' /> entry alongside the other critical hero image preloads.",
+        "No existing preload hints are removed."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/ServicesPage.tsx",
+          "path": "frontend/index.html",
           "operation": "modify",
-          "description": "Modify only the first (Hero) `<section>` to use a full-bleed background image (static asset under `frontend/public/assets/generated/`, using cover and centered positioning) and add a dark overlay layer behind the existing hero content to preserve readability, without changing any hero copy or altering other sections."
+          "description": "Add a new image preload hint for /assets/pexels-sora-shimazaki-5668882.jpg alongside the existing critical hero image preloads, without removing or altering existing preload entries."
         }
       ]
     }

@@ -1,11 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Use the uploaded legal still-life image as the Services page hero section background while preserving existing hero copy and layout.
+**Goal:** Remove the grey flash on the Contact Us page hero background during reload by preloading the existing hero image so it appears immediately.
 
 **Planned changes:**
-- Add the uploaded image `ChatGPT Image Feb 16, 2026, 11_49_14 AM.png` to `frontend/public/assets/generated/` as a static asset for the Services page to reference.
-- Update only the Services page Hero Section (`frontend/src/pages/ServicesPage.tsx`, first `<section>`) to render the image as a full-bleed background (cover + centered).
-- Add a dark dimmed overlay layer behind the hero text to maintain readability without changing any hero text content.
+- Preload the existing Contact Us hero background image (`/assets/pexels-sora-shimazaki-5668882.jpg`) using the same approach already used elsewhere in the project (e.g., existing preload hook/pattern), applied to the Contact Us hero section content.
+- Add a `<link rel="preload" as="image" href="/assets/pexels-sora-shimazaki-5668882.jpg" />` hint in `frontend/index.html` alongside other critical hero image preloads (without removing any existing hints).
 
-**User-visible outcome:** The Services page hero displays the uploaded image as a responsive background with a dark overlay, keeping the existing hero heading and text unchanged.
+**User-visible outcome:** Hard-refreshing or directly loading `/contact` no longer shows an initial grey hero background; the hero image is visible immediately (or as close as technically possible) without changing its positioning, sizing, or layout.

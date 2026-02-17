@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from 'react';
 import { usePreloadImages } from '../../hooks/usePreloadImages';
 
 const BACKGROUND_IMAGES = [
-  '/assets/Law-firms1.jpeg',
   '/assets/constitutional-court-1.jpg',
   '/assets/pexels-ekaterina-bolovtsova-6077123.jpg',
   '/assets/pexels-ekaterina-bolovtsova-6077448.jpg',
@@ -84,8 +83,8 @@ export default function HeroSection() {
 
   return (
     <section className="relative overflow-hidden min-h-[600px] md:min-h-[700px] lg:min-h-[800px] flex items-center">
-      {/* Carousel Background */}
-      <div className="absolute inset-0">
+      {/* Carousel Background with Placeholder */}
+      <div className="absolute inset-0 bg-primary">
         <div
           ref={trackRef}
           className="relative w-full h-full"
@@ -98,11 +97,12 @@ export default function HeroSection() {
             {extendedImages.map((image, index) => (
               <div
                 key={`${image}-${index}`}
-                className="flex-shrink-0 bg-cover bg-center bg-no-repeat"
+                className="flex-shrink-0 bg-cover bg-center bg-no-repeat transition-opacity duration-500"
                 style={{
                   backgroundImage: firstImageReady ? `url(${image})` : 'none',
                   width: `${100 / extendedImages.length}%`,
-                  backgroundColor: !firstImageReady ? 'oklch(var(--primary))' : 'transparent',
+                  backgroundColor: 'oklch(var(--primary))',
+                  opacity: firstImageReady ? 1 : 0.8,
                 }}
               />
             ))}

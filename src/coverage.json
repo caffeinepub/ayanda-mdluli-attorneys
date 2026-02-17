@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-16T09:59:22.849Z",
+  "generatedAt": "2026-02-16T12:31:19.551Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -11,26 +11,25 @@
     "implemented": 2,
     "items": [
       {
-        "id": "REQ-1",
-        "summary": "Add the uploaded image (ChatGPT Image Feb 16, 2026, 11_49_14 AM.png) to the frontend as a static asset under `frontend/public/assets/generated/` so it can be referenced by the Services page.",
+        "id": "REQ-5",
+        "summary": "Ensure the Contact Us page hero background image loads instantly on page reload (no initial grey placeholder flash) by preloading the existing hero image asset and applying the preload behavior to the Contact Us page content (selected element XPath: /html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[2]). The hero image must not be repositioned or visually altered—only the loading behavior should change.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/generated/ChatGPT Image Feb 16, 2026, 11_49_14 AM.png",
-          "frontend/public/assets/generated/services-hero-bg.dim_1024x1536.png"
+          "frontend/src/pages/ContactPage.tsx"
         ],
         "matchedFiles": [
-          "frontend/public/assets/generated/services-hero-bg.dim_1024x1536.png"
+          "frontend/src/pages/ContactPage.tsx"
         ]
       },
       {
-        "id": "REQ-2",
-        "summary": "Update the selected Services page section at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` (the Hero Section in `frontend/src/pages/ServicesPage.tsx`) to use the uploaded image as a full-bleed background with responsive `cover` behavior, centered positioning, and a dark dimmed overlay layer behind the existing text to ensure readability; do not change any hero copy.",
+        "id": "REQ-6",
+        "summary": "Add a preload hint for the Contact Us hero background image in frontend/index.html so direct navigation/reload of the Contact Us route fetches the hero image before render.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/ServicesPage.tsx"
+          "frontend/index.html"
         ],
         "matchedFiles": [
-          "frontend/src/pages/ServicesPage.tsx"
+          "frontend/index.html"
         ]
       }
     ]
@@ -40,8 +39,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/services-hero-bg.dim_1024x1536.png",
-    "frontend/src/pages/ServicesPage.tsx",
+    "frontend/index.html",
+    "frontend/src/pages/ContactPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

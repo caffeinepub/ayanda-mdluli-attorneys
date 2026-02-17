@@ -1,60 +1,59 @@
 {
   "kind": "build_request",
-  "title": "Set uploaded image as Services page hero section background",
-  "priority": "normal",
+  "title": "Fix grey flash on Contact Us hero background image during page reload",
+  "priority": "high",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Add the uploaded image (ChatGPT Image Feb 16, 2026, 11_49_14 AM.png) to the frontend as a static asset under `frontend/public/assets/generated/` so it can be referenced by the Services page.",
+      "id": "REQ-5",
+      "text": "Ensure the Contact Us page hero background image loads instantly on page reload (no initial grey placeholder flash) by preloading the existing hero image asset and applying the preload behavior to the Contact Us page content (selected element XPath: /html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[2]). The hero image must not be repositioned or visually altered—only the loading behavior should change.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "recent-messages-2",
+          "recent-messages-4",
+          "recent-messages-7"
         ],
         "quotes": [
-          "Use this image for the background of the selected section in the services page"
+          "On page reload, the background image in the hero section of the contact us page starts out as grey... And then it goes to the picture.",
+          "Do not reposition the image. Just fix that reloading thing. So that the image, that background image, appears instantly.",
+          "Yes it's the same image currently used there on the hero section if the contact us page"
         ]
       },
       "acceptanceCriteria": [
-        "A new static image file exists in `frontend/public/assets/generated/` matching the required filename.",
-        "The Services page can reference the image via a static path (no backend usage)."
+        "Hard-refreshing (/contact) does not show a grey hero background before the hero image appears; the background image is visible immediately on first paint or as close as technically possible with preloading (matching the Home hero experience).",
+        "The Contact Us hero background image URL remains exactly the same as currently used: /assets/pexels-sora-shimazaki-5668882.jpg.",
+        "No change to hero background positioning (e.g., bg-center / background-position), sizing (bg-cover), or layout spacing.",
+        "Preload is implemented using the same approach already used elsewhere in the project (e.g., head preload hints and/or the existing usePreloadImages hook)."
       ]
     },
     {
-      "id": "REQ-2",
-      "text": "Update the selected Services page section at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` (the Hero Section in `frontend/src/pages/ServicesPage.tsx`) to use the uploaded image as a full-bleed background with responsive `cover` behavior, centered positioning, and a dark dimmed overlay layer behind the existing text to ensure readability; do not change any hero copy.",
+      "id": "REQ-6",
+      "text": "Add a preload hint for the Contact Us hero background image in frontend/index.html so direct navigation/reload of the Contact Us route fetches the hero image before render.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1",
-          "msg-3"
+          "recent-messages-2"
         ],
         "quotes": [
-          "Use this image for the background of the selected section in the services page",
-          "Apply changes"
+          "The background image does not appear instantly on page reload."
         ]
       },
       "acceptanceCriteria": [
-        "The first `<section>` in `frontend/src/pages/ServicesPage.tsx` renders the uploaded image as its background (cover + centered).",
-        "A dark overlay is visible above the image and behind the hero content to maintain text contrast.",
-        "Hero heading, divider, and paragraph text content remains unchanged.",
-        "Only the selected section (Hero Section) styling is modified; the rest of the Services page layout remains visually consistent."
+        "frontend/index.html includes a <link rel='preload' as='image' href='/assets/pexels-sora-shimazaki-5668882.jpg' /> entry alongside the other critical hero image preloads.",
+        "No existing preload hints are removed."
       ]
     }
   ],
   "constraints": [
-    "Apply changes ONLY to the selected element at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` on the Services page.",
-    "Do not change any user-facing copy in the Services page hero section.",
-    "Do not edit any files under `frontend/src/components/ui` or other `frontend.immutablePaths`."
+    "Do not reposition or change the visual composition of the Contact Us hero background image; only fix the loading/flash behavior.",
+    "Do not edit files under frontend/src/components/ui or any other frontend.immutablePaths."
   ],
   "nonGoals": [
-    "No backend changes (no Motoko canister logic changes).",
-    "No changes to other pages (Home, About, Contact) beyond shared styles that are strictly necessary for the Services hero background implementation."
+    "Changing the Contact Us hero copy, overlay opacity, typography, or layout.",
+    "Replacing or editing the hero image asset itself."
   ],
   "imageRequirements": {
-    "required": [
-      "Legal still-life photo background with scales of justice, gavel, and documents (services-hero-bg.dim_1024x1536.png)"
-    ],
+    "required": [],
     "edits": []
   },
   "userProfileUpdate": {

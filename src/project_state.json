@@ -1,25 +1,28 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
-  "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Legal still-life photo background with scales of justice, gavel, and documents (services-hero-bg.dim_1024x1536.png)",
+  "summary": "Website deployed; working on fixing grey flash on Contact Us hero background image during page reload so it appears instantly (no repositioning).",
+  "architectural_notes": [
+    "Consider preloading/optimizing Contact Us hero background image (e.g., CSS/HTML preload) to prevent grey flash on reload without changing positioning."
+  ],
+  "known_issues": [
+    "Contact Us page: hero background image briefly shows grey on page reload before image appears."
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
-      "id": "feature-add-the-uploaded-image-chatgpt-image-feb-16-2026-11-49-14-am-png-to-the-frontend-as-a-static-asset-under-frontend-public-assets-generated-so-it-can-be-referenced-by-the-services-page",
-      "title": "Add the uploaded image (ChatGPT Image Feb 16, 2026, 11_49_14 AM.png) to the frontend as a static asset under `frontend/public/assets/generated/` so it can be referenced by the Services page.",
+      "id": "feature-ensure-the-contact-us-page-hero-background-image-loads-instantly-on-page-reload-no-initial-grey-placeholder-flash-by-preloading-the-existing-hero-image-asset-and-applying-the-preload-behavior-to-the-contact-us-page-content-selected-element-xpath-html-1-body-1-div-1-div-1-div-1-main-1-section-2-the-hero-image-must-not-be-repositioned-or-visually-altered-only-the-loading-behavior-should-change",
+      "title": "Ensure the Contact Us page hero background image loads instantly on page reload (no initial grey placeholder flash) by preloading the existing hero image asset and applying the preload behavior to the Contact Us page content (selected element XPath: /html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[2]). The hero image must not be repositioned or visually altered—only the loading behavior should change.",
       "reqIds": [
-        "REQ-1"
+        "REQ-5"
       ],
       "version": 1
     },
     {
-      "id": "feature-update-the-selected-services-page-section-at-xpath-html-1-body-1-div-1-div-1-div-1-main-1-section-1-the-hero-section-in-frontend-src-pages-servicespage-tsx-to-use-the-uploaded-image-as-a-full-bleed-background-with-responsive-cover-behavior-centered-positioning-and-a-dark-dimmed-overlay-layer-behind-the-existing-text-to-ensure-readability-do-not-change-any-hero-copy",
-      "title": "Update the selected Services page section at XPath `/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/section[1]` (the Hero Section in `frontend/src/pages/ServicesPage.tsx`) to use the uploaded image as a full-bleed background with responsive `cover` behavior, centered positioning, and a dark dimmed overlay layer behind the existing text to ensure readability; do not change any hero copy.",
+      "id": "feature-add-a-preload-hint-for-the-contact-us-hero-background-image-in-frontend-index-html-so-direct-navigation-reload-of-the-contact-us-route-fetches-the-hero-image-before-render",
+      "title": "Add a preload hint for the Contact Us hero background image in frontend/index.html so direct navigation/reload of the Contact Us route fetches the hero image before render.",
       "reqIds": [
-        "REQ-2"
+        "REQ-6"
       ],
       "version": 1
     }
@@ -27,13 +30,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Set the uploaded image as the background for the selected section on the Services page",
+      "summary": "Fix Contact Us page hero background image grey flash on reload; ensure same existing background image loads instantly without repositioning.",
       "reqIds": [],
-      "status": "pending"
+      "status": "in_progress"
     }
   ],
-  "gameProjectType": "none",
-  "projectName": "Set uploaded image as Services page hero section background",
+  "projectName": "Fix grey flash on Contact Us hero background image during page reload",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

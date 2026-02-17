@@ -61,19 +61,17 @@ export default function HomeNavbar() {
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo/Brand */}
+          {/* Text Brand */}
           <button
             onClick={handleHomeClick}
             className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded transition-opacity hover:opacity-80 mr-6 md:mr-8"
             aria-label="Ayanda Mdluli Attorneys - Go to homepage"
           >
-            {/* Logo container with fixed height per breakpoint to prevent layout shift */}
+            {/* Text brand with fixed height per breakpoint to prevent layout shift */}
             <div className="h-[45px] sm:h-[55px] lg:h-[70px] flex items-center">
-              <img
-                src="/assets/images/AyandaMdluliAttorneys-1.png"
-                alt="Ayanda Mdluli Attorneys Official Logo"
-                className="w-auto h-auto max-h-full object-contain"
-              />
+              <span className="text-lg sm:text-xl lg:text-2xl font-heading font-bold text-primary whitespace-nowrap">
+                Ayanda Mdluli Attorneys
+              </span>
             </div>
           </button>
 
